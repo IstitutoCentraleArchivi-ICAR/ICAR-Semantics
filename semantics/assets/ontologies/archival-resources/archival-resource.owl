@@ -1243,7 +1243,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">This class represents an archival resource</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/ontology/archive"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
         <rdfs:label xml:lang="en">Archival resource</rdfs:label>
         <rdfs:label xml:lang="it">Risorsa archivistica</rdfs:label>
         <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
@@ -1564,6 +1564,12 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/hasType"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/FormalOrganizationType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/closingDate"/>
                 <owl:allValuesFrom>
                     <rdfs:Datatype>
@@ -1609,6 +1615,14 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/NaturalPerson"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/FormalOrganizationType -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/FormalOrganizationType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Type"/>
     </owl:Class>
     
 
@@ -2016,8 +2030,10 @@ PA/SSI, PA/SFI</a-cat:iccdNormTag>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/ontology/archive"/>
         <rdfs:label xml:lang="it">Aiuto di Finanziamento</rdfs:label>
         <rdfs:label xml:lang="en">Finding Aid</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+        <core:replacedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/FindingAid"/>
     </owl:Class>
     
 
