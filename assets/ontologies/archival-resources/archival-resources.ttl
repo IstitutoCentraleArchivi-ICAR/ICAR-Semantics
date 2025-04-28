@@ -1,0 +1,1526 @@
+@prefix : <https://w3id.org/arco/archives/ontology/archival-resource/> .
+@prefix MU: <https://w3id.org/italia/onto/MU/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix ns: <http://www.w3.org/2006/vcard/ns#> .
+@prefix CLV: <https://w3id.org/italia/onto/CLV/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ADMS: <https://w3id.org/italia/onto/ADMS/> .
+@prefix a-cd: <https://w3id.org/arco/ontology/context-description/> .
+@prefix a-dd: <https://w3id.org/arco/ontology/denotative-description/> .
+@prefix a-mi: <https://w3id.org/arco/ontology/musical-instrument/> .
+@prefix core: <https://w3id.org/arco/ontology/core/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix opla: <http://www.ontologydesignpatterns.org/opla/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix a-arc: <https://w3id.org/arco/ontology/archive/> .
+@prefix a-cat: <https://w3id.org/arco/ontology/catalogue/> .
+@prefix opla1: <http://ontologydesignpatterns.org/opla/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/arco/archives/ontology/archival-resource/> .
+
+<https://w3id.org/arco/archives/ontology/archival-resource> rdf:type owl:Ontology ;
+                                                             owl:versionIRI <https://w3id.org/arco/archives/ontology/archival-resource/1.0> ;
+                                                             owl:imports <https://w3id.org/arco/ontology/context-description/2.0> ,
+                                                                         <https://w3id.org/arco/ontology/denotative-description/2.0> ;
+                                                             dc:title "Archive Ontology (ArCo network)"@en ,
+                                                                      "Ontologia degli archivi (ArCo network)"@it ;
+                                                             terms:license <https://w3id.org/italia/controlled-vocabulary/licences/A21_CCBY40> ;
+                                                             terms:modified "2025-04-28" ;
+                                                             rdfs:label "Archive Ontology (ArCo network) - version 2.0"@en ,
+                                                                        "Ontologia degli archivi (ArCo network)"@it .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+terms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+terms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+terms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#maxCardinality
+owl:maxCardinality rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/arco/ontology/catalogue/iccdNormTag
+a-cat:iccdNormTag rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#gYear
+xsd:gYear rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#gYearMonth
+xsd:gYearMonth rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://dati.beniculturali/cis/hasMemberColCultEnt
+<http://dati.beniculturali/cis/hasMemberColCultEnt> rdf:type owl:ObjectProperty .
+
+
+###  http://dati.beniculturali/cis/isMemberOfColCultEnt
+<http://dati.beniculturali/cis/isMemberOfColCultEnt> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasAcquisitionMode
+:hasAcquisitionMode rdf:type owl:ObjectProperty ;
+                    rdfs:domain :ArchivalResource .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasArchivalProject
+:hasArchivalProject rdf:type owl:ObjectProperty ;
+                    rdfs:domain <http://dati.beniculturali.it/cis/CulturalEntity> ;
+                    rdfs:range :ArchivalProject .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasArchivalReferenceCode
+:hasArchivalReferenceCode rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf core:hasIdentifier .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasArchivalResource
+:hasArchivalResource rdf:type owl:ObjectProperty ;
+                     rdfs:domain owl:Thing ;
+                     rdfs:range :ArchivalResource .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasArrangement
+:hasArrangement rdf:type owl:ObjectProperty ;
+                rdfs:domain :ArchivalResource ;
+                rdfs:range :Arrangement .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasAttribute
+:hasAttribute rdf:type owl:ObjectProperty ;
+              rdfs:domain :AttributeInTime ;
+              rdfs:range :Attribute .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasAttributeInTime
+:hasAttributeInTime rdf:type owl:ObjectProperty ;
+                    rdfs:domain :NaturalPerson ;
+                    rdfs:range :AttributeInTime .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasCentury
+:hasCentury rdf:type owl:ObjectProperty ;
+            rdfs:domain :TimeInstant ;
+            rdfs:range :Century .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasConditionOfAccess
+:hasConditionOfAccess rdf:type owl:ObjectProperty ;
+                      rdfs:domain :ArchivalResource ;
+                      rdfs:range :ConditionOfAccess .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasConditionOfUse
+:hasConditionOfUse rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ArchivalResource ;
+                   rdfs:range :ConditionOfUse .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasCopyRelation
+:hasCopyRelation rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ArchivalResource ;
+                 rdfs:range :CopyOrOriginalRelation .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasDocumentationRelation
+:hasDocumentationRelation rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ArchivalResource ;
+                          rdfs:range :DocumentationRelation .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasEvent
+:hasEvent rdf:type owl:ObjectProperty ;
+          rdfs:domain :ArchivalResource ;
+          rdfs:range :Event .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasExistancePeriod
+:hasExistancePeriod rdf:type owl:ObjectProperty ;
+                    rdfs:domain :FormalOrganization ;
+                    rdfs:range <https://w3id.org/italia/onto/TI/TimeInterval> .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasExtent
+:hasExtent rdf:type owl:ObjectProperty ;
+           rdfs:domain :ArchivalResource ;
+           rdfs:range :Extent .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasFrequency
+:hasFrequency rdf:type owl:ObjectProperty ;
+              rdfs:domain :RecurrentEvent ;
+              rdfs:range :Frequency .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasFundingAid
+:hasFundingAid rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf core:hasConcept ;
+               rdfs:domain :ArchivalResource ;
+               rdfs:range a-arc:FindingAid ;
+               rdfs:comment "Property that links an archival resource to its funding aid."@en ,
+                            "Proprietà che lega una risorsa archivistica a un aiuto di finanziamento"@it ,
+                            "ha aiuti di finanziamento"@it ,
+                            "has funding aid"@en ;
+               rdfs:isDefinedBy <https://w3id.org/arco/ontology/archive> ;
+               owl:versionInfo "stabile"@it ,
+                               "unstable"@en .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasHistoricalOrInstitutionalContext
+:hasHistoricalOrInstitutionalContext rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :isHistoricalOrInstitutionalContextOf ;
+                                     rdfs:domain :HistoricalOrInstitutionalContextInTime ;
+                                     rdfs:range :HistoricalOrInstitutionalContext .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasInstitutionalProfile
+:hasInstitutionalProfile rdf:type owl:ObjectProperty ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( :FormalOrganization
+                                                     :InstitutionalProfileInTime
+                                                   )
+                                     ] ;
+                         rdfs:range :InstitutionalProfile .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasInstitutionalProfileClassification
+:hasInstitutionalProfileClassification rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :InstitutionalProfile ;
+                                       rdfs:range :InstitutionalProfileClassification .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasInstitutionalProfileInTime
+:hasInstitutionalProfileInTime rdf:type owl:ObjectProperty ;
+                               rdfs:domain :FormalOrganization ;
+                               rdfs:range :InstitutionalProfileInTime .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasJurisdiction
+:hasJurisdiction rdf:type owl:ObjectProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( :FormalOrganization
+                                             :InstitutionalProfileInTime
+                                           )
+                             ] ;
+                 rdfs:range :Jurisdiction .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasNumbering
+:hasNumbering rdf:type owl:ObjectProperty ;
+              rdfs:domain :Arrangement ;
+              rdfs:range :Numbering .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasOriginalRelation
+:hasOriginalRelation rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ArchivalResource ;
+                     rdfs:range :CopyOrOriginalRelation .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasPurpose
+:hasPurpose rdf:type owl:ObjectProperty ;
+            rdfs:domain :ArchivalProject ;
+            rdfs:range :Purpose .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasReference
+:hasReference rdf:type owl:ObjectProperty ;
+              rdfs:domain :ArchivalResource ;
+              rdfs:range [ rdf:type owl:Class ;
+                           owl:unionOf ( :WebReference
+                                         a-cd:Publication
+                                       )
+                         ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasSite
+:hasSite rdf:type owl:ObjectProperty ;
+         rdfs:domain :FormalOrganization ;
+         rdfs:range CLV:Feature .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasSource
+:hasSource rdf:type owl:ObjectProperty ;
+           rdfs:domain :ArchivalResource ;
+           rdfs:range [ rdf:type owl:Class ;
+                        owl:unionOf ( :ArchivalResource
+                                      :LegalResource
+                                    )
+                      ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasSpecification
+:hasSpecification rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hasSuperArchivalResourceSet
+:hasSuperArchivalResourceSet rdf:type owl:ObjectProperty ;
+                             rdfs:domain :ArchivalResourceSet ;
+                             rdfs:range :ArchivalResourceSet .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hierarchicalChild
+:hierarchicalChild rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf core:isAssociatedWith ;
+                   owl:inverseOf :hierarchicalParent ;
+                   rdfs:domain :HistoricalOrInstitutionalContext ;
+                   rdfs:range :HistoricalOrInstitutionalContext .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/hierarchicalParent
+:hierarchicalParent rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf core:isAssociatedWith ;
+                    rdfs:domain :HistoricalOrInstitutionalContext ;
+                    rdfs:range :HistoricalOrInstitutionalContext .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/isHappenedIn
+:isHappenedIn rdf:type owl:ObjectProperty ;
+              rdfs:domain :Event ;
+              rdfs:range l0:Location .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/isHistoricalOrInstitutionalContextOf
+:isHistoricalOrInstitutionalContextOf rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :HistoricalOrInstitutionalContext ;
+                                      rdfs:range :HistoricalOrInstitutionalContextInTime .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/temporalFollows
+:temporalFollows rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf core:isAssociatedWith ;
+                 owl:inverseOf :temporalPrecedes ;
+                 rdfs:domain :HistoricalOrInstitutionalContext ;
+                 rdfs:range :HistoricalOrInstitutionalContext .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/temporalPrecedes
+:temporalPrecedes rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf core:isAssociatedWith ;
+                  rdfs:domain :HistoricalOrInstitutionalContext ;
+                  rdfs:range :HistoricalOrInstitutionalContext .
+
+
+###  https://w3id.org/arco/ontology/archive/hasArchivalResourceLevel
+a-arc:hasArchivalResourceLevel rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf core:hasType ;
+                               rdfs:domain :ArchivalResource ;
+                               rdfs:range a-arc:ArchivalResourceLevel ;
+                               rdfs:comment "Property that links the archival resource to the archival hierarchy level (e.g., fonds, series, item, file, etc.)"@en ,
+                                            "Proprietà che collega la risorsa archivistica al livello della gerarchia archivistica (e.g., fondo, serie, unità archivistica, unità documentaria, ecc.)"@it ;
+                               rdfs:isDefinedBy <https://w3id.org/arco/ontology/archive> ;
+                               rdfs:label "ha livello risorsa archivistica"@it ,
+                                          "has archival resource level"@en ;
+                               owl:deprecated "true"^^xsd:boolean ;
+                               owl:versionInfo "stabile"@it ,
+                                               "stable"@en ;
+                               core:replacedBy core:hasType .
+
+
+###  https://w3id.org/arco/ontology/archive/hasSortingCriterion
+a-arc:hasSortingCriterion rdf:type owl:ObjectProperty ;
+                          owl:deprecated "true"^^xsd:boolean ;
+                          core:replacedBy <https://w3id.org/archives/arco/ontology/archival-resource/hasArrangement> .
+
+
+###  https://w3id.org/arco/ontology/arco-lite/hasAuthor
+<https://w3id.org/arco/ontology/arco-lite/hasAuthor> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/arco-lite/hasCollectionMember
+<https://w3id.org/arco/ontology/arco-lite/hasCollectionMember> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/arco-lite/hasHolder
+<https://w3id.org/arco/ontology/arco-lite/hasHolder> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/arco-lite/isCollectionMemberOf
+<https://w3id.org/arco/ontology/arco-lite/isCollectionMemberOf> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasAcquisition
+a-cd:hasAcquisition rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasDating
+a-cd:hasDating rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasDesignationInTime
+a-cd:hasDesignationInTime rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasIntervention
+a-cd:hasIntervention rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasInventorySituation
+a-cd:hasInventorySituation rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasLegalSituation
+a-cd:hasLegalSituation rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasResponsibility
+a-cd:hasResponsibility rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasSubject
+a-cd:hasSubject rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/hasTitle
+a-cd:hasTitle rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/context-description/isCollectionIn
+a-cd:isCollectionIn rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/core/classifies
+core:classifies rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/core/hasClassificationInTime
+core:hasClassificationInTime rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/core/hasConcept
+core:hasConcept rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/core/hasIdentifier
+core:hasIdentifier rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/core/hasType
+core:hasType rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/core/isAssociatedWith
+core:isAssociatedWith rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/core/isDefinedByClassificationSystem
+core:isDefinedByClassificationSystem rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/core/isDescribedBy
+core:isDescribedBy rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/denotative-description/hasMeasurementCollection
+a-dd:hasMeasurementCollection rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/arco/ontology/location/hasTimeIndexedTypedLocation
+<https://w3id.org/arco/ontology/location/hasTimeIndexedTypedLocation> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/onto/MU/hasValue
+MU:hasValue rdf:type owl:ObjectProperty ;
+            rdfs:domain owl:Thing ;
+            rdfs:range MU:Value ;
+            rdfs:comment "Property that links a thing to a value."@en ,
+                         "Proprietà che collega una cosa di qualunque tipo a un valore."@it ;
+            rdfs:isDefinedBy <https://w3id.org/italia/onto/MU> ;
+            rdfs:label "ha valore"@it ,
+                       "has value"@en ;
+            owl:versionInfo "stabile"@it ,
+                            "stable"@en .
+
+
+###  https://w3id.org/italia/onto/TI/haTimeInstantInside
+<https://w3id.org/italia/onto/TI/haTimeInstantInside> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/onto/TI/hasTimeParameter
+<https://w3id.org/italia/onto/TI/hasTimeParameter> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/accessConditionDescription
+:accessConditionDescription rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :ArchivalDigitalizationProject ;
+                            rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/annex
+:annex rdf:type owl:DatatypeProperty ;
+       rdfs:domain :LegalResource ;
+       rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/closingDate
+:closingDate rdf:type owl:DatatypeProperty ;
+             rdfs:domain :FormalOrganization ;
+             rdfs:range [ rdf:type rdfs:Datatype ;
+                          owl:unionOf ( xsd:date
+                                        xsd:gYear
+                                        xsd:gYearMonth
+                                      )
+                        ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/closingDateInString
+:closingDateInString rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :FormalOrganization ;
+                     rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/extent
+:extent rdf:type owl:DatatypeProperty ;
+        rdfs:domain :ArchivalResource ;
+        rdfs:range rdfs:Literal ;
+        rdfs:comment "This property indicates the number and type of elements that compose the archival resource"@en ,
+                     "questa proprietà indica il numero e il tipo di elementi che compongono la risorsa archivistica"@it ;
+        rdfs:isDefinedBy <https://w3id.org/arco/ontology/archive> ;
+        rdfs:label "consistenza"@it ,
+                   "extent"@en ;
+        owl:deprecated "true"^^xsd:boolean ;
+        owl:versionInfo "stabile"@it ,
+                        "stable"@en .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/extentInLinearMeters
+:extentInLinearMeters rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Extent ;
+                      rdfs:range xsd:integer .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/inIntervalPosition
+:inIntervalPosition rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :TimeInstant ;
+                    rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/institutionDate
+:institutionDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :FormalOrganization ;
+                 rdfs:range [ rdf:type rdfs:Datatype ;
+                              owl:unionOf ( xsd:date
+                                            xsd:gYear
+                                            xsd:gYearMonth
+                                          )
+                            ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/institutionDateInString
+:institutionDateInString rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :FormalOrganization ;
+                         rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/institutionalHistory
+:institutionalHistory rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :FormalOrganization ;
+                      rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/legalResourceNumber
+:legalResourceNumber rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :LegalResource ;
+                     rdfs:range xsd:integer .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/quantity
+:quantity rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Extent ;
+          rdfs:range xsd:integer .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/rightsHolderDescription
+:rightsHolderDescription rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :ArchivalDigitalizationProject ;
+                         rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/technicalDescription
+:technicalDescription rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :ArchivalDigitalizationProject ;
+                      rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/totalExtentInLinearMeters
+:totalExtentInLinearMeters rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :ArchivalResourceSet ;
+                           rdfs:range rdfs:Literal .
+
+
+###  https://w3id.org/arco/ontology/archive/arrangementSystem
+a-arc:arrangementSystem rdf:type owl:DatatypeProperty ;
+                        rdfs:domain a-arc:ArchivalCollection ;
+                        rdfs:range rdfs:Literal ;
+                        rdfs:isDefinedBy <https://w3id.org/arco/ontology/archive> ;
+                        rdfs:label "arrangement system"@en ,
+                                   "sistema di disposizione"@it ;
+                        owl:deprecated "true"^^xsd:boolean ;
+                        owl:versionInfo "provvisoria"@it ,
+                                        "unstable"@en ;
+                        core:replacedBy :Arrangement .
+
+
+###  https://w3id.org/arco/ontology/archive/linearShelfSpace
+a-arc:linearShelfSpace rdf:type owl:DatatypeProperty ;
+                       rdfs:domain a-arc:ArchivalCollection ;
+                       rdfs:range rdfs:Literal ;
+                       rdfs:isDefinedBy <https://w3id.org/arco/ontology/archive> ;
+                       rdfs:label "linear shelf space"@en ,
+                                  "spazio lineare per scaffali"@it ;
+                       owl:deprecated "true"^^xsd:boolean ;
+                       owl:versionInfo "provvisoria"@it ,
+                                       "unstable"@en ;
+                       core:replacedBy :totalExtentInLinearMeters .
+
+
+###  https://w3id.org/arco/ontology/context-description/historicalInformation
+a-cd:historicalInformation rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/arco/ontology/core/description
+core:description rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/italia/onto/l0/identifier
+l0:identifier rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://dati.beniculturali.it/cis/CollectionCulEnt
+<http://dati.beniculturali.it/cis/CollectionCulEnt> rdf:type owl:Class .
+
+
+###  http://dati.beniculturali.it/cis/CulturalEntity
+<http://dati.beniculturali.it/cis/CulturalEntity> rdf:type owl:Class .
+
+
+###  http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/AccessType
+:AccessType rdf:type owl:Class ;
+            rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalCreator
+:ArchivalCreator rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/italia/onto/RO/Role> .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalDigitalizationProject
+:ArchivalDigitalizationProject rdf:type owl:Class ;
+                               rdfs:subClassOf :ArchivalProject .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalHolder
+:ArchivalHolder rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/italia/onto/RO/Role> .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem
+:ArchivalItem rdf:type owl:Class ;
+              rdfs:subClassOf :ArchivalResource .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalProject
+:ArchivalProject rdf:type owl:Class ;
+                 rdfs:subClassOf l0:Activity ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasPurpose ;
+                                   owl:allValuesFrom :Purpose
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty core:hasType ;
+                                   owl:allValuesFrom :ProjectType
+                                 ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalReferenceCode
+:ArchivalReferenceCode rdf:type owl:Class ;
+                       rdfs:subClassOf core:Identifier .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResource
+:ArchivalResource rdf:type owl:Class ;
+                  rdfs:subClassOf <http://dati.beniculturali.it/cis/CulturalEntity> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-arc:hasArchivalResourceLevel ;
+                                    owl:someValuesFrom a-arc:ArchivalResourceLevel
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://dati.beniculturali/cis/isMemberOfColCultEnt> ;
+                                    owl:allValuesFrom a-arc:ArchivalCollection
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasArchivalReferenceCode ;
+                                    owl:allValuesFrom :ArchivalReferenceCode
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasArrangement ;
+                                    owl:allValuesFrom :Arrangement
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasConditionOfAccess ;
+                                    owl:allValuesFrom :ConditionOfAccess
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasConditionOfUse ;
+                                    owl:allValuesFrom :ConditionOfUse
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasCopyRelation ;
+                                    owl:allValuesFrom :CopyOrOriginalRelation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasDocumentationRelation ;
+                                    owl:allValuesFrom :DocumentationRelation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasEvent ;
+                                    owl:allValuesFrom :Event
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasExtent ;
+                                    owl:allValuesFrom :Extent
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasFundingAid ;
+                                    owl:allValuesFrom a-arc:FindingAid
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasOriginalRelation ;
+                                    owl:allValuesFrom :CopyOrOriginalRelation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-arc:hasArchivalResourceLevel ;
+                                    owl:allValuesFrom a-arc:ArchivalResourceLevel
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <https://w3id.org/arco/ontology/arco-lite/hasAuthor> ;
+                                    owl:allValuesFrom l0:Agent
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasAcquisition ;
+                                    owl:allValuesFrom a-cd:Acquisition
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasDating ;
+                                    owl:allValuesFrom a-cd:Dating
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasDesignationInTime ;
+                                    owl:allValuesFrom a-cd:DesignationInTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasIntervention ;
+                                    owl:allValuesFrom a-cd:Intervention
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasInventorySituation ;
+                                    owl:allValuesFrom a-cd:InventorySituation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasLegalSituation ;
+                                    owl:allValuesFrom a-cd:LegalSituation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasResponsibility ;
+                                    owl:allValuesFrom :ArchivalResponsibility
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasResponsibility ;
+                                    owl:allValuesFrom a-cd:Responsibility
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasSubject ;
+                                    owl:allValuesFrom l0:Topic
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:hasTitle ;
+                                    owl:allValuesFrom a-cd:Title
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty core:hasIdentifier ;
+                                    owl:allValuesFrom core:Identifier
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty core:hasType ;
+                                    owl:allValuesFrom :LevelOfDescription
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty core:isDescribedBy ;
+                                    owl:allValuesFrom :FindingAid
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty core:isDescribedBy ;
+                                    owl:allValuesFrom a-cat:Record
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <https://w3id.org/arco/ontology/location/hasTimeIndexedTypedLocation> ;
+                                    owl:allValuesFrom <https://w3id.org/arco/ontology/location/TimeIndexedTypedLocation>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <https://w3id.org/arco/ontology/arco-lite/hasHolder> ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass l0:Agent
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :extent ;
+                                    owl:someValuesFrom rdfs:Literal
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty a-cd:historicalInformation ;
+                                    owl:allValuesFrom rdfs:Literal
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty core:description ;
+                                    owl:allValuesFrom rdfs:Literal
+                                  ] ;
+                  rdfs:comment "This class represents an archival resource"@en ;
+                  rdfs:isDefinedBy <https://w3id.org/arco/archives/ontology/archival-resource> ;
+                  rdfs:label "Archival resource"@en ,
+                             "Risorsa archivistica"@it ;
+                  owl:versionInfo "stabile"@it ,
+                                  "stable"@en .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet
+:ArchivalResourceSet rdf:type owl:Class ;
+                     rdfs:subClassOf <http://dati.beniculturali.it/cis/CollectionCulEnt> ,
+                                     :ArchivalResource ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasSuperArchivalResourceSet ;
+                                       owl:allValuesFrom :ArchivalResourceSet
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :totalExtentInLinearMeters ;
+                                       owl:allValuesFrom rdfs:Literal
+                                     ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResponsibility
+:ArchivalResponsibility rdf:type owl:Class ;
+                        rdfs:subClassOf a-cd:Responsibility ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasAcquisitionMode ;
+                                          owl:allValuesFrom a-cd:AcquisitionType
+                                        ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit
+:ArchivalUnit rdf:type owl:Class ;
+              rdfs:subClassOf :ArchivalResource .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Arrangement
+:Arrangement rdf:type owl:Class ;
+             rdfs:subClassOf l0:Description ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasNumbering ;
+                               owl:allValuesFrom :Numbering
+                             ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Attribute
+:Attribute rdf:type owl:Class ;
+           rdfs:subClassOf l0:Characteristic .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/AttributeInTime
+:AttributeInTime rdf:type owl:Class ;
+                 rdfs:subClassOf core:EventOrSituationInTime ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasAttribute ;
+                                   owl:someValuesFrom :Attribute
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty MU:hasValue ;
+                                   owl:someValuesFrom :AttributeValue
+                                 ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/AttributeValue
+:AttributeValue rdf:type owl:Class ;
+                rdfs:subClassOf MU:Value .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Century
+:Century rdf:type owl:Class ;
+         rdfs:subClassOf <https://w3id.org/italia/onto/TI/TemporalEntity> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasSpecification ;
+                           owl:allValuesFrom :CenturySpecification
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty <https://w3id.org/italia/onto/TI/time> ;
+                           owl:allValuesFrom rdfs:Literal
+                         ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/CenturySpecification
+:CenturySpecification rdf:type owl:Class ;
+                      rdfs:subClassOf l0:Characteristic .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ConditionOfAccess
+:ConditionOfAccess rdf:type owl:Class ;
+                   rdfs:subClassOf core:CulturalEntityCharacteristic ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty core:hasType ;
+                                     owl:allValuesFrom :ConditionOfUseType
+                                   ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ConditionOfUse
+:ConditionOfUse rdf:type owl:Class ;
+                rdfs:subClassOf core:CulturalEntityCharacteristic ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty core:hasType ;
+                                  owl:allValuesFrom :AccessType
+                                ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ConditionOfUseType
+:ConditionOfUseType rdf:type owl:Class ;
+                    rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/CopyOrOriginalRelation
+:CopyOrOriginalRelation rdf:type owl:Class ;
+                        rdfs:subClassOf core:EventOrSituationInTime ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasArchivalResource ;
+                                          owl:someValuesFrom :ArchivalResource
+                                        ] ;
+                        rdfs:comment "Questa classe rappresenta la djdjdsso"@it ,
+                                     "This class representsòpvhiwohjw"@en ;
+                        rdfs:isDefinedBy <https://w3id.org/archives/arco/archival-resource> ;
+                        rdfs:label "Copy or original relation"@en ,
+                                   "Relazione di copia o originale"@it ;
+                        owl:versionInfo "instabile"@it ,
+                                        "unstable"@en .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/DocumentationRelation
+:DocumentationRelation rdf:type owl:Class ;
+                       rdfs:subClassOf core:EventOrSituationInTime ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasArchivalResource ;
+                                         owl:someValuesFrom :ArchivalResource
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty core:hasType ;
+                                         owl:someValuesFrom :DocumentationRelationType
+                                       ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/DocumentationRelationType
+:DocumentationRelationType rdf:type owl:Class ;
+                           rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Event
+:Event rdf:type owl:Class ;
+       rdfs:subClassOf core:EventOrSituationInTime ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :isHappenedIn ;
+                         owl:allValuesFrom l0:Location
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty core:hasAgentRole ;
+                         owl:allValuesFrom core:AgentRole
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty core:hasType ;
+                         owl:allValuesFrom :EventType
+                       ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/EventType
+:EventType rdf:type owl:Class ;
+           rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Extent
+:Extent rdf:type owl:Class ;
+        rdfs:subClassOf l0:Object ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty core:hasType ;
+                          owl:allValuesFrom :ExtentType
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :extentInLinearMeters ;
+                          owl:allValuesFrom xsd:integer
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :quantity ;
+                          owl:allValuesFrom xsd:integer
+                        ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ExtentType
+:ExtentType rdf:type owl:Class ;
+            rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/FindingAid
+:FindingAid rdf:type owl:Class ;
+            rdfs:subClassOf <http://dati.beniculturali.it/cis/CulturalEntity> .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/FormalOrganization
+:FormalOrganization rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/italia/onto/COV/Organization> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasExistancePeriod ;
+                                      owl:allValuesFrom <https://w3id.org/italia/onto/TI/TimeInterval>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasInstitutionalProfileInTime ;
+                                      owl:allValuesFrom :InstitutionalProfileInTime
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasJurisdiction ;
+                                      owl:allValuesFrom :Jurisdiction
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasSite ;
+                                      owl:allValuesFrom CLV:Feature
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty core:hasType ;
+                                      owl:allValuesFrom :FormalOrganizationType
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :closingDate ;
+                                      owl:allValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:unionOf ( xsd:date
+                                                                        xsd:gYear
+                                                                        xsd:gYearMonth
+                                                                      )
+                                                        ]
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :closingDateInString ;
+                                      owl:allValuesFrom rdfs:Literal
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :institutionDate ;
+                                      owl:allValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:unionOf ( xsd:date
+                                                                        xsd:gYear
+                                                                        xsd:gYearMonth
+                                                                      )
+                                                        ]
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :institutionDateInString ;
+                                      owl:allValuesFrom rdfs:Literal
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :institutionalHistory ;
+                                      owl:allValuesFrom rdfs:Literal
+                                    ] ;
+                    owl:disjointWith :NaturalPerson .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/FormalOrganizationType
+:FormalOrganizationType rdf:type owl:Class ;
+                        rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Frequency
+:Frequency rdf:type owl:Class ;
+           rdfs:subClassOf core:Concept .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/HistoricalOrInstitutionalContext
+:HistoricalOrInstitutionalContext rdf:type owl:Class ;
+                                  rdfs:subClassOf l0:Object ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :isHistoricalOrInstitutionalContextOf ;
+                                                    owl:allValuesFrom :HistoricalOrInstitutionalContextInTime
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty core:isAssociatedWith ;
+                                                    owl:allValuesFrom :HistoricalOrInstitutionalContext
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty CLV:hasSpatialCoverage ;
+                                                    owl:allValuesFrom CLV:Feature
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty <https://w3id.org/italia/onto/TI/hasTemporalEntity> ;
+                                                    owl:allValuesFrom <https://w3id.org/italia/onto/TI/TemporalEntity>
+                                                  ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/HistoricalOrInstitutionalContextInTime
+:HistoricalOrInstitutionalContextInTime rdf:type owl:Class ;
+                                        rdfs:subClassOf core:EventOrSituationInTime ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasHistoricalOrInstitutionalContext ;
+                                                          owl:someValuesFrom :HistoricalOrInstitutionalContext
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty CLV:hasSpatialCoverage ;
+                                                          owl:allValuesFrom CLV:Feature
+                                                        ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/InstitutionalProfile
+:InstitutionalProfile rdf:type owl:Class ;
+                      rdfs:subClassOf l0:Object ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasInstitutionalProfileClassification ;
+                                        owl:allValuesFrom :InstitutionalProfileClassification
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty core:isAssociatedWith ;
+                                        owl:allValuesFrom :HistoricalOrInstitutionalContext
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty <https://w3id.org/italia/onto/TI/atTime> ;
+                                        owl:allValuesFrom <https://w3id.org/italia/onto/TI/TimeInterval>
+                                      ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/InstitutionalProfileClassification
+:InstitutionalProfileClassification rdf:type owl:Class ;
+                                    rdfs:subClassOf core:ClassificationInTime .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/InstitutionalProfileInTime
+:InstitutionalProfileInTime rdf:type owl:Class ;
+                            rdfs:subClassOf core:EventOrSituationInTime ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasInstitutionalProfile ;
+                                              owl:someValuesFrom :InstitutionalProfile
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasJurisdiction ;
+                                              owl:allValuesFrom :Jurisdiction
+                                            ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Jurisdiction
+:Jurisdiction rdf:type owl:Class ;
+              rdfs:subClassOf l0:Location .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/LegalResource
+:LegalResource rdf:type owl:Class ;
+               rdfs:subClassOf l0:Object ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty core:hasType ;
+                                 owl:allValuesFrom :LegalResourceType
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :annex ;
+                                 owl:allValuesFrom rdfs:Literal
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :legalResourceNumber ;
+                                 owl:allValuesFrom xsd:integer
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty <https://w3id.org/italia/onto/TI/date> ;
+                                 owl:allValuesFrom xsd:date
+                               ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/LegalResourceType
+:LegalResourceType rdf:type owl:Class ;
+                   rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/LevelOfDescription
+:LevelOfDescription rdf:type owl:Class ;
+                    rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/NaturalPerson
+:NaturalPerson rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/italia/onto/CPV/Person> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasAttributeInTime ;
+                                 owl:allValuesFrom :AttributeInTime
+                               ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Numbering
+:Numbering rdf:type owl:Class ;
+           rdfs:subClassOf l0:Description ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty core:hasType ;
+                             owl:allValuesFrom :NumberingType
+                           ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/NumberingType
+:NumberingType rdf:type owl:Class ;
+               rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ProjectType
+:ProjectType rdf:type owl:Class ;
+             rdfs:subClassOf core:Type .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Purpose
+:Purpose rdf:type owl:Class ;
+         rdfs:subClassOf l0:Description .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/RecurrentEvent
+:RecurrentEvent rdf:type owl:Class ;
+                rdfs:subClassOf :Event ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasFrequency ;
+                                  owl:allValuesFrom :Frequency
+                                ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/TimeInstant
+:TimeInstant rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/italia/onto/TI/TimeInstant> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasCentury ;
+                               owl:allValuesFrom :Century
+                             ] .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/WebReference
+:WebReference rdf:type owl:Class ;
+              rdfs:subClassOf l0:Object ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty <https://w3id.org/italia/onto/TI/date> ;
+                                owl:allValuesFrom xsd:date
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty l0:name ;
+                                owl:allValuesFrom rdfs:Literal
+                              ] .
+
+
+###  https://w3id.org/arco/ontology/archive/ArchivalCollection
+a-arc:ArchivalCollection rdf:type owl:Class ;
+                         rdfs:subClassOf <http://dati.beniculturali.it/cis/CollectionCulEnt> ,
+                                         <http://org.semanticweb.owlapi/error#Error1> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty a-arc:hasArchivalResourceLevel ;
+                                           owl:someValuesFrom a-arc:ArchivalResourceLevel
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://dati.beniculturali/cis/hasMemberColCultEnt> ;
+                                           owl:allValuesFrom :ArchivalResource
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty a-arc:hasArchivalResourceLevel ;
+                                           owl:allValuesFrom a-arc:ArchivalResourceLevel
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty a-arc:hasSortingCriterion ;
+                                           owl:allValuesFrom a-arc:SortingCriterion
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <https://w3id.org/arco/ontology/arco-lite/hasAuthor> ;
+                                           owl:allValuesFrom l0:Agent
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty a-cd:isCollectionIn ;
+                                           owl:allValuesFrom a-cd:CollectionMembership
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty core:hasIdentifier ;
+                                           owl:allValuesFrom core:Identifier
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty core:isDescribedBy ;
+                                           owl:allValuesFrom a-cat:Record
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <https://w3id.org/arco/ontology/location/hasTimeIndexedTypedLocation> ;
+                                           owl:allValuesFrom <https://w3id.org/arco/ontology/location/TimeIndexedTypedLocation>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <https://w3id.org/arco/ontology/arco-lite/hasHolder> ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass l0:Agent
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty core:description ;
+                                           owl:allValuesFrom rdfs:Literal
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty l0:identifier ;
+                                           owl:allValuesFrom rdfs:Literal
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty a-arc:arrangementSystem ;
+                                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty a-arc:linearShelfSpace ;
+                                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                         ] ;
+                         rdfs:comment "Questa classe rappresenta una collezione archivistica, cioè un'unione di risorse archivistiche legate da un vincolo archivistico"@it ,
+                                      "This class represents an archival collection, which is a combination of archival resources linked by an archival bond."@en ;
+                         rdfs:isDefinedBy <https://w3id.org/arco/ontology/archive> ;
+                         rdfs:label "Archival collection"@en ,
+                                    "Collezione archivistica"@it ;
+                         owl:deprecated "true"^^xsd:boolean ;
+                         owl:versionInfo "stabile"@it ,
+                                         "stable"@en ;
+                         a-cat:iccdNormTag "ICCD Normativa F: UB/UBF. Normativa F: PD/SFI, SSI. Normativa FF: PAC" ;
+                         core:replacedBy :ArchivalResourceSet ,
+                                         :ArchivalUnit .
+
+
+###  https://w3id.org/arco/ontology/archive/ArchivalResourceLevel
+a-arc:ArchivalResourceLevel rdf:type owl:Class ;
+                            rdfs:subClassOf core:Type ;
+                            rdfs:comment "Questa classe rappresenta il livello gerarchico delle risorse archivistiche. Esempi inclusono: unità archivistica, Fondo, Serie, ecc. Nel contesto del progetto portale delle fonti della repubblica italiana, si sta lavorando per predisporre un vocabolario controllato i cui concetti sono le istanze di questa classe. Il vocabolario utilizzerà sicuramente la gerarchia definita in ISAD e sarà allineato ad altri vocabolari analoghi come per esempio il vocabolario di XDAMS e quello RIC-O"@it ,
+                                         "This class represents the archival hierarchy level of an archival resource. Examples include: archival unit, fonds, series, etc."@en ;
+                            rdfs:label "Archival resource level"@en ,
+                                       "Livello della risorsa archivistica"@it ;
+                            owl:deprecated "true"^^xsd:boolean ;
+                            owl:versionInfo "stabile"@it ,
+                                            "stable"@en ;
+                            a-cat:iccdNormTag """ICCD Normativa FF: PA/PAC/PACT
+ICCD Normativa F: UB/UBF/UBFU-UBFT-UBFS-UBFF-UBFP,
+PA/SSI, PA/SFI""" ;
+                            core:replacedBy :LevelOfDescription .
+
+
+###  https://w3id.org/arco/ontology/archive/FindingAid
+a-arc:FindingAid rdf:type owl:Class ;
+                 rdfs:subClassOf core:Concept ;
+                 rdfs:comment "Questa classe rappresenta programmi di aiuti per il finanziamento utili per finanziare archivi."@it ,
+                              "This class represents finding aids useful to fund archival resources."@en ;
+                 rdfs:isDefinedBy <https://w3id.org/arco/ontology/archive> ;
+                 rdfs:label "Aiuto di Finanziamento"@it ,
+                            "Finding Aid"@en ;
+                 owl:deprecated "true"^^xsd:boolean ;
+                 owl:versionInfo "stabile"@it ,
+                                 "stable"@en ;
+                 core:replacedBy :FindingAid .
+
+
+###  https://w3id.org/arco/ontology/archive/SortingCriterion
+a-arc:SortingCriterion rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty core:description ;
+                                         owl:allValuesFrom rdfs:Literal
+                                       ] ;
+                       owl:deprecated "true"^^xsd:boolean ;
+                       core:replacedBy :Arrangement .
+
+
+###  https://w3id.org/arco/ontology/catalogue/Record
+a-cat:Record rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/Acquisition
+a-cd:Acquisition rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/CollectionMembership
+a-cd:CollectionMembership rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/Dating
+a-cd:Dating rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/DesignationInTime
+a-cd:DesignationInTime rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/Intervention
+a-cd:Intervention rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/InventorySituation
+a-cd:InventorySituation rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/LegalSituation
+a-cd:LegalSituation rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/Responsibility
+a-cd:Responsibility rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/context-description/Title
+a-cd:Title rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/core/ClassificationInTime
+core:ClassificationInTime rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/core/ClassificationSystem
+core:ClassificationSystem rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/core/Concept
+core:Concept rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/core/Identifier
+core:Identifier rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/core/Type
+core:Type rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/denotative-description/CommunicationMedium
+a-dd:CommunicationMedium rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/denotative-description/MeasurementCollection
+a-dd:MeasurementCollection rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/denotative-description/TechnicalConcept
+a-dd:TechnicalConcept rdf:type owl:Class .
+
+
+###  https://w3id.org/arco/ontology/location/TimeIndexedTypedLocation
+<https://w3id.org/arco/ontology/location/TimeIndexedTypedLocation> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/TI/TimeInstant
+<https://w3id.org/italia/onto/TI/TimeInstant> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/l0/Agent
+l0:Agent rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/l0/Topic
+l0:Topic rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Alphanumerical
+:Alphanumerical rdf:type owl:NamedIndividual ,
+                         :NumberingType .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Annual
+:Annual rdf:type owl:NamedIndividual ,
+                 :Frequency .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ArabicNumeral
+:ArabicNumeral rdf:type owl:NamedIndividual ,
+                        :NumberingType .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Biennial
+:Biennial rdf:type owl:NamedIndividual ,
+                   :Frequency .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Early
+:Early rdf:type owl:NamedIndividual ,
+                :CenturySpecification .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/ExternalDocumentation
+:ExternalDocumentation rdf:type owl:NamedIndividual ,
+                                :DocumentationRelationType .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/InternalDocumentation
+:InternalDocumentation rdf:type owl:NamedIndividual ,
+                                :DocumentationRelationType .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Mid
+:Mid rdf:type owl:NamedIndividual ,
+              :CenturySpecification .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Monthly
+:Monthly rdf:type owl:NamedIndividual ,
+                  :Frequency .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/NobleTitle
+:NobleTitle rdf:type owl:NamedIndividual ,
+                     :Attribute .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Profession
+:Profession rdf:type owl:NamedIndividual ,
+                     :Attribute .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/Qualification
+:Qualification rdf:type owl:NamedIndividual ,
+                        :Attribute .
+
+
+###  https://w3id.org/arco/archives/ontology/archival-resource/RomanNumeral
+:RomanNumeral rdf:type owl:NamedIndividual ,
+                       :NumberingType .
+
+
+[ owl:maxCardinality "1"^^xsd:nonNegativeInteger
+] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
