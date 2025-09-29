@@ -16,9 +16,9 @@
       adms:representationTechnique <http://purl.org/adms/representationtechnique/SKOS> ;
       dct:identifier "https://w3id.org/arco/archives/controlled-vocabulary/archival-level-of-description" ;
       ndc:keyConcept "archival-level-of-description" ;
-      dct:rightsHolder <https://w3id.org/italia/data/public-organization/m_bac-7C56L5> ;
-      dct:creator  <https://w3id.org/italia/data/public-organization/m_bac-7C56L5> ;
-      dct:publisher <https://w3id.org/italia/data/public-organization/m_bac-7C56L5>  ;
+      dct:rightsHolder <https://w3id.org/arco/resource/public-organization/m_bac-A35A6A7> ;
+      dct:creator  <https://w3id.org/arco/resource/public-organization/m_bac-A35A6A7> ;
+      dct:publisher <https://w3id.org/arco/resource/public-organization/m_bac-A35A6A7>  ;
       dcat:theme <http://publications.europa.eu/resource/authority/data-theme/EDUC> ;
       rdfs:isDefinedBy <https://w3id.org/arco/archives/controlled-vocabulary/archival-level-of-description> ;
       dct:conformsTo  <https://w3id.org/italia/data/standard/SKOS> ;
@@ -36,10 +36,10 @@
                         <https://w3id.org/arco/archives/controlled-vocabulary/archival-level-of-description/item> ;
       owl:versionInfo "versione 0.1 - Creazione e pubblicazione del vocabolario"@it .
 
-<https://w3id.org/italia/data/public-organization/m_bac-7C56L5>
+<https://w3id.org/arco/resource/public-organization/m_bac-A35A6A7>
     a dcatapit:Agent, foaf:Agent ;
-    dct:identifier "m_bac-7C56L5" ;
-    foaf:name "Istituto Centrale degli ARchivi (ICAR) - Ministero della Cultura (MIC)"@it .
+    dct:identifier "A35A6A7" ;
+    foaf:name "Istituto centrale per gli archivi - Ministero della Cultura (MIC)"@it .
 
 <https://w3id.org/arco/archives/resource/distribution/archival-level-of-description_RDF_TURTLE>
     a	dcatapit:Distribution  ;
