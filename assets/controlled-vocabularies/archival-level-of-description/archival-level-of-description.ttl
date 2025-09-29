@@ -25,7 +25,7 @@
       dct:language <http://publications.europa.eu/resource/authority/language/ITA> , <http://publications.europa.eu/resource/authority/language/ENG> ;
       dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/IRREG> ;
       dcat:keyword "archivi"@it , "archivio"@it , "livello di descrizione"@it ;
-      dcat:distribution <https://w3id.org/arco/archives/resource/distribution/archival-level-of-description_RDF_TURTLE> ;
+      dcat:distribution <https://w3id.org/arco/resource/distribution/archival-level-of-description_RDF_TURTLE> ;
       dct:issued "2025-04-28"^^xsd:date ;
       dct:modified "2025-04-28"^^xsd:date ;
       skos:hasTopConcept <https://w3id.org/arco/archives/controlled-vocabulary/archival-level-of-description/category> , <https://w3id.org/arco/archives/controlled-vocabulary/archival-level-of-description/collection> ,
@@ -41,7 +41,7 @@
     dct:identifier "A35A6A7" ;
     foaf:name "Istituto centrale per gli archivi - Ministero della Cultura (MIC)"@it .
 
-<https://w3id.org/arco/archives/resource/distribution/archival-level-of-description_RDF_TURTLE>
+<https://w3id.org/arco/resource/distribution/archival-level-of-description_RDF_TURTLE>
     a	dcatapit:Distribution  ;
     dct:title	"Distribuzione RDF/Turtle per il vocabolario sui livelli di descrizione archivistici"@it , "RDF/Turtle distribution for archival levels of description"@en ;
     dct:description	"Questa è la distribuzione RDF/Turtle del dataset Linked Open Data del vocabolario controllato sulla lista dei livelli di descrizione archivistici"@it , "This is the distribution in RDF/turtle of the Linked Open Dataset of the controlled vocabulary related to archival levels of description"@en ;
