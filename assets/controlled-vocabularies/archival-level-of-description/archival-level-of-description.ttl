@@ -3,7 +3,14 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcatapit: <http://dati.gov.it/onto/dcatapit#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xkos: <http://rdf-vocabulary.ddialliance.org/xkos#> .
+@prefix ndc: <https://w3id.org/italia/onto/NDC/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 <https://w3id.org/arco/archives/controlled-vocabulary/archival-level-of-description>
       a       skos:ConceptScheme , adms:Asset , dcatapit:Dataset ;
