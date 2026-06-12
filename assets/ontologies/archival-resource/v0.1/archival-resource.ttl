@@ -1,21 +1,18 @@
 @prefix : <https://w3id.org/arco/archives/ontology/archival-resource/> .
 @prefix MU: <https://w3id.org/italia/onto/MU/> .
-@prefix cis: <http://dati.beniculturali.it/cis/> .
+@prefix TI: <https://w3id.org/italia/onto/TI/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix l0: <https://w3id.org/italia/onto/l0/> .
-@prefix TI: <https://w3id.org/italia/onto/TI/> .
-@prefix ro: <https://w3id.org/italia/onto/RO/> .
 @prefix ns: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ro: <https://w3id.org/italia/onto/RO/> .
 @prefix CLV: <https://w3id.org/italia/onto/CLV/> .
 @prefix COV: <https://w3id.org/italia/onto/COV/> .
 @prefix CPV: <https://w3id.org/italia/onto/CPV/> .
 @prefix cis: <http://dati.beniculturali.it/cis/> .
-@prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ADMS: <https://w3id.org/italia/onto/ADMS/> .
 @prefix a-cd: <https://w3id.org/arco/ontology/context-description/> .
 @prefix a-dd: <https://w3id.org/arco/ontology/denotative-description/> .
 @prefix a-mi: <https://w3id.org/arco/ontology/musical-instrument/> .
@@ -152,11 +149,11 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
 #################################################################
 
 ###  http://dati.beniculturali.it/cis/hasMemberColCultEnt
-<http://dati.beniculturali.it/cis/hasMemberColCultEnt> rdf:type owl:ObjectProperty .
+cis:hasMemberColCultEnt rdf:type owl:ObjectProperty .
 
 
 ###  http://dati.beniculturali.it/cis/isMemberOfColCultEnt
-<http://dati.beniculturali.it/cis/isMemberOfColCultEnt> rdf:type owl:ObjectProperty .
+cis:isMemberOfColCultEnt rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/arco/archives/ontology/archival-resource/happensIn
@@ -357,7 +354,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
 ###  https://w3id.org/arco/archives/ontology/archival-resource/hasExistancePeriod
 :hasExistancePeriod rdf:type owl:ObjectProperty ;
                     rdfs:domain :FormalOrganization ;
-                    rdfs:range <https://w3id.org/italia/onto/TI/TimeInterval> ;
+                    rdfs:range TI:TimeInterval ;
                     rdfs:comment "Questa proprietà mette in relazione l'entità descritta con un arco cronologico che ne costituisce il periodo di esistenza."@it ,
                                  "This property relates the entity described to a chronological arc that constitutes its period of existence."@en ;
                     rdfs:isDefinedBy <https://w3id.org/arco/archives/ontology/archival-resource> ;
@@ -756,11 +753,11 @@ MU:hasValue rdf:type owl:ObjectProperty ;
 
 
 ###  https://w3id.org/italia/onto/TI/haTimeInstantInside
-<https://w3id.org/italia/onto/TI/haTimeInstantInside> rdf:type owl:ObjectProperty .
+TI:haTimeInstantInside rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/italia/onto/TI/hasTimeParameter
-<https://w3id.org/italia/onto/TI/hasTimeParameter> rdf:type owl:ObjectProperty .
+TI:hasTimeParameter rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -1019,7 +1016,7 @@ cis:CulturalEntity rdf:type owl:Class .
 
 ###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalCreator
 :ArchivalCreator rdf:type owl:Class ;
-                 rdfs:subClassOf <https://w3id.org/italia/onto/RO/Role> ;
+                 rdfs:subClassOf ro:Role ;
                  rdfs:comment "Questa classe Definita come sottoclasse di Role, individua tra gli Agenti quelli che hanno la specifica Responsabilità, rispetto alla documentazione descritta, di produttore dell'archivio."@it ,
                               "This class identifies among the Agents those who have the specific Responsibility for creating the archive, towards the documentation described."@en ;
                  rdfs:isDefinedBy <https://w3id.org/arco/archives/ontology/archival-resource> ;
@@ -1043,7 +1040,7 @@ cis:CulturalEntity rdf:type owl:Class .
 
 ###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalHolder
 :ArchivalHolder rdf:type owl:Class ;
-                rdfs:subClassOf <https://w3id.org/italia/onto/RO/Role> ;
+                rdfs:subClassOf ro:Role ;
                 rdfs:comment "Questa classe individua tra gli Agenti quelli che hanno la specifica Responsabilità, rispetto alla documentazione descritta, di conservatore dell'archivio."@it ,
                              "This class identifies among the Agents those who have the specific Responsibility for maintaining the archive, towards the documentation described."@en ;
                 rdfs:isDefinedBy <https://w3id.org/arco/archives/ontology/archival-resource> ;
@@ -1056,6 +1053,8 @@ cis:CulturalEntity rdf:type owl:Class .
 ###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem
 :ArchivalItem rdf:type owl:Class ;
               rdfs:subClassOf :ArchivalResource ;
+              owl:disjointWith :ArchivalResourceSet ,
+                               :ArchivalUnit ;
               rdfs:comment "Questa classe rappresenta una unità documentaria"@it ,
                            "This class represents an archival item."@en ;
               rdfs:isDefinedBy <https://w3id.org/arco/archives/ontology/archival-resource> ;
@@ -1240,6 +1239,7 @@ cis:CulturalEntity rdf:type owl:Class .
                                        owl:onProperty :totalExtentInLinearMeters ;
                                        owl:allValuesFrom rdfs:Literal
                                      ] ;
+                     owl:disjointWith :ArchivalUnit ;
                      rdfs:comment "Questa classe rappresenta un complesso archivistico, inteso come qualunque aggregazione documentaria di livello superiore all'unità."@it ,
                                   "This class represents an archival complex, understood as any documentary aggregation of a level higher than an archival resource."@en ;
                      rdfs:isDefinedBy <https://w3id.org/arco/archives/ontology/archival-resource> ;
@@ -1363,13 +1363,13 @@ cis:CulturalEntity rdf:type owl:Class .
 
 ###  https://w3id.org/arco/archives/ontology/archival-resource/Century
 :Century rdf:type owl:Class ;
-         rdfs:subClassOf <https://w3id.org/italia/onto/TI/TemporalEntity> ,
+         rdfs:subClassOf TI:TemporalEntity ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :hasSpecification ;
                            owl:allValuesFrom :CenturySpecification
                          ] ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty <https://w3id.org/italia/onto/TI/time> ;
+                           owl:onProperty TI:time ;
                            owl:allValuesFrom rdfs:Literal
                          ] ;
          rdfs:comment "Questa classe rappresenta una entità temporale che individua un periodo di tempo predefinito della durata di cento anni."@it ,
@@ -1570,7 +1570,7 @@ cis:CulturalEntity rdf:type owl:Class .
                     rdfs:subClassOf COV:Organization ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :hasExistancePeriod ;
-                                      owl:allValuesFrom <https://w3id.org/italia/onto/TI/TimeInterval>
+                                      owl:allValuesFrom TI:TimeInterval
                                     ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :hasInstitutionalProfileInTime ;
@@ -1681,8 +1681,8 @@ cis:CulturalEntity rdf:type owl:Class .
                                                     owl:allValuesFrom CLV:Feature
                                                   ] ,
                                                   [ rdf:type owl:Restriction ;
-                                                    owl:onProperty <https://w3id.org/italia/onto/TI/hasTemporalEntity> ;
-                                                    owl:allValuesFrom <https://w3id.org/italia/onto/TI/TemporalEntity>
+                                                    owl:onProperty TI:hasTemporalEntity ;
+                                                    owl:allValuesFrom TI:TemporalEntity
                                                   ] ;
                                   rdfs:comment "Questa classe rappresenta la compagine istituzionale entro cui ha operato il soggetto produttore. Può trattarsi di uno Stato o di articolazioni territoriali o amministrative di esso."@it ,
                                                "This class represents the institutional framework within which the producing entity operated. This may be a state or its territorial or administrative branches."@en ;
@@ -1725,8 +1725,8 @@ cis:CulturalEntity rdf:type owl:Class .
                                         owl:allValuesFrom :HistoricalOrInstitutionalContext
                                       ] ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty <https://w3id.org/italia/onto/TI/atTime> ;
-                                        owl:allValuesFrom <https://w3id.org/italia/onto/TI/TimeInterval>
+                                        owl:onProperty TI:atTime ;
+                                        owl:allValuesFrom TI:TimeInterval
                                       ] ;
                       rdfs:comment "Questa classe rappresenta il profilo descrittivo generale di una tipologia di istituzione o di un ente a normativa comune, che ne individua le date di istituzione/soppressione e ne definisce funzioni e mandato."@it ,
                                    "This class represents the general descriptive profile of a type of institution or a body with common legislation, which identifies the dates of its establishment/abolition and defines its functions and mandate."@en ;
@@ -1798,7 +1798,7 @@ cis:CulturalEntity rdf:type owl:Class .
                                  owl:allValuesFrom xsd:integer
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty <https://w3id.org/italia/onto/TI/date> ;
+                                 owl:onProperty TI:date ;
                                  owl:allValuesFrom xsd:date
                                ] ;
                rdfs:comment "Questa classe rappresenta qualsiasi atto o fatto che produce, modifica o estingue norme giuridiche."@it ,
@@ -1956,7 +1956,7 @@ cis:CulturalEntity rdf:type owl:Class .
 
 ###  https://w3id.org/arco/archives/ontology/archival-resource/TimeInstant
 :TimeInstant rdf:type owl:Class ;
-             rdfs:subClassOf <https://w3id.org/italia/onto/TI/TimeInstant> ,
+             rdfs:subClassOf TI:TimeInstant ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :hasCentury ;
                                owl:allValuesFrom :Century
@@ -1974,7 +1974,7 @@ cis:CulturalEntity rdf:type owl:Class .
 :WebReference rdf:type owl:Class ;
               rdfs:subClassOf l0:Object ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty <https://w3id.org/italia/onto/TI/date> ;
+                                owl:onProperty TI:date ;
                                 owl:allValuesFrom xsd:date
                               ] ,
                               [ rdf:type owl:Restriction ;
@@ -2067,7 +2067,7 @@ a-dd:TechnicalConcept rdf:type owl:Class .
 
 
 ###  https://w3id.org/italia/onto/TI/TimeInstant
-<https://w3id.org/italia/onto/TI/TimeInstant> rdf:type owl:Class .
+TI:TimeInstant rdf:type owl:Class .
 
 
 ###  https://w3id.org/italia/onto/l0/Agent

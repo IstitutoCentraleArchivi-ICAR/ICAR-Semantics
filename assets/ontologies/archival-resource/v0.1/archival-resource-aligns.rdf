@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/arco/archives/ontology/archival-resource-aligns/"
+     xml:base="https://w3id.org/arco/archives/ontology/archival-resource-aligns/"
+     xmlns:l0="https://w3id.org/italia/onto/l0/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:clv="https://w3id.org/italia/onto/CLV"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:a-cd="https://w3id.org/arco/ontology/context-description/"
+     xmlns:core="https://w3id.org/arco/ontology/core/"
+     xmlns:opla="http://ontologydesignpatterns.org/opla/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rico="https://www.ica.org/standards/RiC/ontology#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:a-arc="https://w3id.org/arco/archives/ontology/archival-resource/"
+     xmlns:opla1="http://www.ontologydesignpatterns.org/opla/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:a-lite="https://w3id.org/arco/ontology/arco-lite/">
+    <owl:Ontology rdf:about="https://w3id.org/arco/ontology/archival-resource-aligns/">
+        <owl:versionIRI rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource-aligns/0.1"/>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-06-12</terms:created>
+        <terms:creator xml:lang="en">BUP srl</terms:creator>
+        <terms:creator xml:lang="en">Istituto Centrale per gli Archivi - ICAR</terms:creator>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-06-12</terms:modified>
+        <terms:title xml:lang="it">Questi sono gli allineamenti dell&apos;ontologia ArCo4Archives e dell&apos;ArCo ontology network verso l&apos;ontologia RIC-O.</terms:title>
+        <terms:title xml:lang="en">These are the alignments of ArCo4Archives Ontology and ArCo ontology network to RIC-O Ontology.</terms:title>
+        <rdfs:label xml:lang="it">Questi sono gli allineamenti dell&apos;ontologia ArCo4Archives e dell&apos;ArCo ontology network verso l&apos;ontologia RIC-O.</rdfs:label>
+        <rdfs:label xml:lang="en">These are the alignments of ArCo4Archives Ontology and ArCo ontology network to RIC-O Ontology.</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/hasParentArchivalSet -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/hasParentArchivalSet">
+        <rdfs:subPropertyOf rdf:resource="https://www.ica.org/standards/RiC/ontology#isOrWasIncludedIn"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/arco-lite/hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/arco-lite/hasAuthor">
+        <owl:equivalentProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#hasAuthor"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/ontology/arco-lite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/arco-lite/hasHolder -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/arco-lite/hasHolder">
+        <owl:equivalentProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#hasOrHadHolder"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/ontology/arco-lite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/arco-lite/isCollectionMemberOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/arco-lite/isCollectionMemberOf">
+        <rdfs:subPropertyOf rdf:resource="https://www.ica.org/standards/RiC/ontology#isOrWasIncludedIn"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/ontology/arco-lite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/context-description/hasDating -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/context-description/hasDating">
+        <rdfs:subPropertyOf rdf:resource="https://www.ica.org/standards/RiC/ontology#isAssociatedWithDate"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/ontology/context-description"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/onto/CLVhasSpatialCoverage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/onto/CLVhasSpatialCoverage">
+        <owl:equivalentProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#isAssociatedWithPlace"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/onto/CLV"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="https://www.ica.org/standards/RiC/ontology#hasAuthor"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#hasOrHadHolder -->
+
+    <owl:ObjectProperty rdf:about="https://www.ica.org/standards/RiC/ontology#hasOrHadHolder"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#isAssociatedWithDate -->
+
+    <owl:ObjectProperty rdf:about="https://www.ica.org/standards/RiC/ontology#isAssociatedWithDate"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#isAssociatedWithPlace -->
+
+    <owl:ObjectProperty rdf:about="https://www.ica.org/standards/RiC/ontology#isAssociatedWithPlace"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#isOrWasIncludedIn -->
+
+    <owl:ObjectProperty rdf:about="https://www.ica.org/standards/RiC/ontology#isOrWasIncludedIn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/totalExtentInString -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/totalExtentInString">
+        <owl:equivalentProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#recordResourceExtent"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/context-description/historicalInformation -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/ontology/context-description/historicalInformation">
+        <owl:equivalentProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#history"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/ontology/context-description"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/description -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/ontology/core/description">
+        <owl:equivalentProperty rdf:resource="https://www.ica.org/standards/RiC/ontology#scopeAndContent"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/ontology/core"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#history -->
+
+    <owl:DatatypeProperty rdf:about="https://www.ica.org/standards/RiC/ontology#history"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#recordResourceExtent -->
+
+    <owl:DatatypeProperty rdf:about="https://www.ica.org/standards/RiC/ontology#recordResourceExtent"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#scopeAndContent -->
+
+    <owl:DatatypeProperty rdf:about="https://www.ica.org/standards/RiC/ontology#scopeAndContent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#Record"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResource -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResource">
+        <owl:equivalentClass rdf:resource="https://www.ica.org/standards/RiC/ontology#RecordResource"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#RecordSet"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#RecordSet"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/FindingAid -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/FindingAid">
+        <rdfs:subClassOf rdf:resource="https://www.ica.org/standards/RiC/ontology#DocumentaryFormType"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#DocumentaryFormType -->
+
+    <owl:Class rdf:about="https://www.ica.org/standards/RiC/ontology#DocumentaryFormType"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#Record -->
+
+    <owl:Class rdf:about="https://www.ica.org/standards/RiC/ontology#Record"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#RecordResource -->
+
+    <owl:Class rdf:about="https://www.ica.org/standards/RiC/ontology#RecordResource"/>
+    
+
+
+    <!-- https://www.ica.org/standards/RiC/ontology#RecordSet -->
+
+    <owl:Class rdf:about="https://www.ica.org/standards/RiC/ontology#RecordSet"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
