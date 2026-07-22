@@ -1,0 +1,375 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix a-cd: <https://w3id.org/arco/ontology/context-description/> .
+@prefix a-ce: <https://w3id.org/arco/ontology/cultural-event/> .
+@prefix a-dd: <https://w3id.org/arco/ontology/denotative-description/> .
+@prefix a-lite: <https://w3id.org/arco/ontology/arco-lite/> .
+@prefix a-loc: <https://w3id.org/arco/ontology/location/> .
+@prefix a-arc: <https://w3id.org/archives/ontology/archival-resource/> .
+@prefix arco: <https://w3id.org/arco/ontology/arco/> .
+@prefix cis: <http://dati.beniculturali.it/cis/> .
+@prefix clv: <https://w3id.org/italia/onto/CLV/> .
+@prefix core: <https://w3id.org/arco/ontology/core/> .
+@prefix cov: <https://w3id.org/italia/onto/COV/> .
+@prefix cpv: <https://w3id.org/italia/onto/CPV/> .
+@prefix ipac: <https://ipac.cultura.gov.it/onto/ipac/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ti: <https://w3id.org/italia/onto/TI/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <https://w3id.org/arco4archives/shacl/> .
+
+ex:ArchivalUnitShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:ArchivalUnit ;
+	sh:property [
+		sh:path core:hasType ;
+		sh:nodeKind sh:IRI ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "La relazione dell'unità archivistica con il suo livello di descrizione è obbligatoria: core:hasType deve essere materializzata"
+		] ;
+    sh:property [
+        sh:path l0:positionInSequence ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:nodeKind xsd:Integer ;
+        sh:message "Il numero di sequenza è obbligatorio: l0:positionInSequence deve essere materializzata"
+    ] ;
+    sh:property [
+        sh:path a-arc:hasArchivalReferenceCode ;
+        sh:class a-arc:ArchivalreferenceCode ;
+    ] ;
+    sh:property [
+        sh:path a-cd:hasDesignationInTime ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:class a-cd:DesignationInTime ;
+        sh:message "La denominazione corrente del unità archivistica è obbligatoria: a-cd:hasDesignationInTime deve essere materializzata"
+    ] ;
+    sh:property [
+        sh:path a-lite:currentDesignation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:nodeKind rdfs:Literal ;
+        sh:message "La denominazione corrente dell'unità archivistica è obbligatoria: a-lite:currentDesignation deve essere materializzata"
+    ] ;
+    sh:property [
+        sh:path ti:hasTemporalEntity ;
+		sh:severity sh:Violation ;
+        sh:class ti:TemporalEntity ;
+		sh:message "La relazione dell'unità archivistica con l'entità temporale è obbligatoria: ti:hasTemporalEntity deve essere materializzata"
+	] ;
+    sh:property [
+        sh:path a-arc:hasExtent ;
+		sh:severity sh:Violation ;
+        sh:class a-arc:Extent ;
+		sh:message "La relazione dell'unità archivistica con la sua consistenza è obbligatoria: a-arc:hasExtent deve essere materializzata"
+	] ,
+    [
+        sh:path a-arc:totalExtentInString ;
+        sh:datatype xsd:integer ;
+        sh:severity sh:Violation ;
+        sh:message "La relazione della consistenza con il suo tipo è obbligatoria: a-arc:totalExtentInString deve essere materializzata"
+    ] ;
+    sh:property [
+        sh:path core:hasIdentifier ;
+		sh:severity sh:Violation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class core:Identifier ;
+		sh:message "La relazione dell'unità archivistica con l'ID locale è obbligatoria: core:hasIdentifier deve essere materializzata"
+	] ;
+    sh:property [
+        sh:path core:description ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path a-arc:hasArrangement ;
+        sh:class a-arc:Arrangement ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path a-arc:hasConditionOfAccess ;
+        sh:class a-arc:ConditionOfAccess ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path a-arc:hasConditionOfUse ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        sh:path a-arc:hasConservationStatus ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path a-arc:hasOriginalRelation ;
+        sh:class a-arc:CopyOrOriginalRelation ;
+    ] ,
+    [
+        sh:path a-arc:hasCopyRelation ;
+        sh:class a-arc:CopyOrOriginalRelation ;
+    ],
+    [
+        sh:path: a-arc:hasReference ;
+        sh:class a-arc:WebReference ;
+    ];
+    sh:property [
+        sh:path a-arc:hasDocumentationRelation ;
+        sh:class a-arc:DocumentationRelation ;
+    ] ,
+    [
+        sh:path a-lite:hasOriginal ;
+        sh:class a-arc:ArchivalResource ;
+    ] ,
+    [
+        sh:path a-lite:hasCopy ;
+        sh:class a-arc:ArchivalResource ;
+    ] ;
+    sh:property [
+        sh:path a-arc:hasParentArchivalResourceSet ;
+        sh:class a-arc:ArchivalResourceSet ;
+    ] ;
+    sh:property [
+        sh:path a-cd:hasResponsibility ;
+        sh:nodeKind sh:IRI ;
+    ] ,
+    [
+        sh:path a-cd:hasAgentRole ;
+        sh:class core:AgentRole ;
+    ];
+    sh:property [
+        sh:path a-arc:isDescribedBy ;
+        sh:class a-arc:FindingAid ;
+    ] ;
+    sh:property [
+        sh:path a-arc:hasArchivalProject ;
+        sh:class a-arc:ArchivalProject ;
+    ] ;
+    sh:property [
+        sh:path a-cd:hasSubject ;
+        sh:class a-cd:Subject ;
+    ] ;
+    sh:property [
+        sh:path a-arc:hasEvent ;
+        sh:class a-arc:Event ;
+    ] ;
+    sh:property [
+        sh:path core:isAssociatedWith ;
+        sh:class a-arc:NaturalPerson ;
+    ] ;
+    sh:property [
+        sh:path core:isAssociatedWith ;
+        sh:class a-arc:FormalOrganization ;
+    ] ;
+    sh:property [
+        sh:path a-arc:hasReference ;
+        sh:class a-cd:Publication ;
+    ] ;
+
+    sh:property [
+        sh:path a-arc:hasSource ;
+        sh:class a-arc:ArchivalResource ;
+    ] ;
+
+    sh:property [
+        sh:path a-arc:hasSource ;
+        sh:class a-arc:LegalResource ;
+    ] ;
+
+    sh:property [
+        sh:path a-arc:hasReference ;
+        sh:class a-arc:WebReference ;
+    ] .
+
+ex:DesignationInTimeShape
+    a sh:NodeShape ;
+    sh:targetClass a-cd:DesignationInTime ;
+    sh:property    [
+        sh:path l0:name ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:nodeKind sh:Literal ;
+        sh:message "La denominazione dell'unità archivistica è obbligatoria: l0:name deve essere materializzata"
+    ] ,
+    [
+        sh:path core:note ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+    sh:or (
+        [sh:property [
+            sh:path core:hasType ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:severity sh:Violation ;
+            sh:nodeKind sh:IRI ;
+            sh:message "La denominazione dell'unità archivistica è obbligatoria: a-cd:hasType deve essere materializzata"
+        ] ]
+        [sh:property [
+            sh:path core:current ;
+            sh:hasValue true ;
+        ] ]
+    ).
+
+ex:ExtentShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:Extent ;
+    sh:property [
+        sh:path core:hasType ;
+        sh:severity sh:Violation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "La relazione della consistenza con il suo tipo è obbligatoria: core:hasType deve essere materializzata"
+    ] ,
+    [
+        sh:path a-arc:quantity ;
+        sh:datatype xsd:integer ;
+        sh:severity sh:Violation ;
+        sh:message "La relazione della consistenza con il suo tipo è obbligatoria: a-arc:quantity deve essere materializzata"
+    ] ,
+    [
+        sh:path core:note ;
+        sh:nodeKind sh:Literal ;
+    ] .
+
+ex:IdentifierShape
+    a sh:NodeShape ;
+    sh:targetClass core:Identifier ;
+    sh:property [
+        sh:path core:hasType ;
+        sh:severity sh:Violation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue core:LocalIdentifier ;
+        sh:message "La relazione dell'ID con il suo tipo è obbligatoria: core:hasType deve essere materializzata"
+    ] ,
+
+    [
+        sh:path core:identifier ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "La relazione dell'ID con il suo valore è obbligatoria: core:identifier deve essere materializzata"
+    ] .
+
+ex:ArrangementShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:Arrangement ;
+    sh:property [
+        sh:path a-arc:hasNumbering ;
+        sh:class a-arc:Numbering ;
+        sh:minCount 1;
+        sh:maxCount 1;
+    ] ,
+    [
+        sh:path core:description ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "La relazione della descrizione con il suo valore è obbligatoria: core:description per il numbering deve essere materializzata"
+    ] .
+
+ex:Numberingshape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:Numbering ;
+    sh:property [
+        sh:path a-arc:hasNumberingType ;
+        sh:severity sh:Violation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in (a-arc:RomanNumeral a-arc:ArabicNumeral a-arc:Alphanumerical) ;
+
+       sh:message "La relazione della numerazione con il suo tipo è obbligatoria: core:hasType deve essere materializzata"
+    ] .
+
+ex:ConditionOfAccessShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:ConditionOfAccess ;
+    sh:property [
+        sh:path core:hasType ;
+        sh:severity sh:Violation ;
+
+
+        sh:nodeKind sh:IRI ;
+        sh:message "La relazione della condizione di accesso con il suo tipo è obbligatoria: a-arc:hasType deve essere materializzata"
+
+    ] ,
+    [
+        sh:path core:note ;
+        sh:datatype xsd:string ;
+    ] .
+
+ex:ConditionOfUseShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:ConditionOfUse ;
+    sh:property [
+        sh:path core:hasType ;
+        sh:severity sh:Violation ;
+        sh:nodeKind sh:IRI ;
+        sh:message "La relazione della condizione di utilizzo con il suo tipo è obbligatoria: a-arc:hasType deve essere materializzata"
+    ] ,
+    [
+        sh:path core:note ;
+        sh:nodeKind sh:Literal ;
+    ] .
+
+ex:CopyOrOriginalRelationShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:CopyOrOriginalRelation ;
+    sh:property [
+        sh:path core:specification ;
+        sh:nodeKind sh:Literal ;
+    ] ,
+    [
+        sh:path a-arc:hasOriginalResource ;
+        sh:severity sh:Violation ;
+        sh:class a-arc:ArchivalResource ;
+        sh:message "La relazione della condizione di accesso con il suo tipo è obbligatoria: a-arc:hasType deve essere materializzata"
+    ] ,
+    [
+        sh:path a-arc:hasCopyResource ;
+        sh:severity sh:Violation ;
+        sh:class a-arc:ArchivalResource ;
+        sh:message "La relazione della condizione di accesso con il suo tipo è obbligatoria: a-arc:hasType deve essere materializzata"
+    ] .
+
+ex:DocumentationRelationShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:DocumentationRelation ;
+    sh:property [
+        sh:path core:hasType ;
+        sh:in (a-arc:Internal a-arc:External) ;
+    ] ,
+    [
+        sh:path core:specification ;
+        sh:nodeKind sh:Literal ;
+    ] .
+
+ex:ArchivalResponsibilityShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:ArchivalResponsibility ;
+    sh:property [
+        sh:path a-cd:hasInterventionRole ;
+        sh:maxCount 1 ;
+        sh:or (
+        [sh:class a-arc:ArchivalCreator]
+        [sh:class a-arc:ArchivalHolder]
+        )
+    ] ,
+    [
+        sh:path a-arc:hasAcquisitionMode ;
+        sh:nodeKind sh:IRI ;
+    ] ,
+    [
+        sh:path a-cd:hasAgentWithResponsibility ;
+        sh:class l0:Agent ;
+    ].

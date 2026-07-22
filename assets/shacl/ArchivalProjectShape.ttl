@@ -1,0 +1,124 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix a-cd: <https://w3id.org/arco/ontology/context-description/> .
+@prefix a-ce: <https://w3id.org/arco/ontology/cultural-event/> .
+@prefix a-dd: <https://w3id.org/arco/ontology/denotative-description/> .
+@prefix a-lite: <https://w3id.org/arco/ontology/arco-lite/> .
+@prefix a-loc: <https://w3id.org/arco/ontology/location/> .
+@prefix a-arc: <https://w3id.org/archives/ontology/archival-resource/> .
+@prefix arco: <https://w3id.org/arco/ontology/arco/> .
+@prefix cis: <http://dati.beniculturali.it/cis/> .
+@prefix clv: <https://w3id.org/italia/onto/CLV/> .
+@prefix core: <https://w3id.org/arco/ontology/core/> .
+@prefix cov: <https://w3id.org/italia/onto/COV/> .
+@prefix cpv: <https://w3id.org/italia/onto/CPV/> .
+@prefix ipac: <https://ipac.cultura.gov.it/onto/ipac/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ti: <https://w3id.org/italia/onto/TI/> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <https://w3id.org/arco4archives/shacl/> .
+
+ex:ArchivalProjectShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:ArchivalProject ;
+    sh:property [
+        sh:path l0:name ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+
+    sh:property [
+        sh:path a-cd:hasResponsibility ;
+        sh:nodeKind sh:IRI ;
+    ] ,
+    [
+        sh:path a-cd:hasAgentRole ;
+        sh:class core:AgentRole ;
+    ] ;
+
+    sh:property [
+        sh:path core:hasType ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:nodeKind sh:IRI ;
+        sh:message "La tipologia del progetto è obbligatoria: core:hasType deve essere materializzata"
+    ] ,
+    [
+        sh:path a-arc:hasPurpose ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+
+    sh:property [
+        sh:path core:description ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+
+    sh:property [
+        sh:path a-arc:technicalDescription ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+
+    sh:property [
+        sh:path a-arc:accessConditionDescription ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+
+    sh:property [
+        sh:path a-arc:rightsHolderDescriptio ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+
+    sh:property [
+        sh:path a-cd:historicalInformation ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+
+    sh:property [
+        sh:path ti:hasTemporalEntity ;
+        sh:severity sh:Violation ;
+        sh:class ti:TemporalEntity ;
+        sh:message "La relazione dell'unità archivistica con l'entità temporale è obbligatoria: ti:hasTemporalEntity deve essere materializzata"
+    ] ;
+
+    sh:property [
+        sh:path core:hasIdentifier ;
+        sh:severity sh:Violation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class core:Identifier ;
+        sh:message "La relazione del progetto con l'ID è obbligatoria: core:hasIdentifier deve essere materializzata"
+    ] ;
+
+    sh:property [
+        sh:path a-arc:isArchivalProjectOf ;
+        sh:or (
+            [sh:class a-arc:ArchivalResourceSet]
+            [sh:class a-arc:ArchivalUnit]
+            [sh:class a-arc:ArchivalItem]
+        )
+    ],
+    [
+        sh:path a-cd:hasSubject ;
+        sh:class a-cd:Subject ;
+    ].
+ex:IdentifierShape 
+    a sh:NodeShape ;
+    sh:targetClass core:Identifier ;
+    sh:property [
+        sh:path core:hasType ;
+        sh:severity sh:Violation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue core:LocalIdentifier ;
+        sh:message "La relazione dell'ID con il suo tipo è obbligatoria: core:hasType deve essere materializzata"
+    ] ,
+
+    [
+        sh:path core:identifier ; 
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "La relazione dell'ID con il suo valore è obbligatoria: core:identifier deve essere materializzata"
+    ] .

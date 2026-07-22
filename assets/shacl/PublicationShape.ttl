@@ -1,0 +1,93 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix a-cd: <https://w3id.org/arco/ontology/context-description/> .
+@prefix a-ce: <https://w3id.org/arco/ontology/cultural-event/> .
+@prefix a-dd: <https://w3id.org/arco/ontology/denotative-description/> .
+@prefix a-lite: <https://w3id.org/arco/ontology/arco-lite/> .
+@prefix a-loc: <https://w3id.org/arco/ontology/location/> .
+@prefix a-arc: <https://w3id.org/archives/ontology/archival-resource/> .
+@prefix arco: <https://w3id.org/arco/ontology/arco/> .
+@prefix cis: <http://dati.beniculturali.it/cis/> .
+@prefix clv: <https://w3id.org/italia/onto/CLV/> .
+@prefix core: <https://w3id.org/arco/ontology/core/> .
+@prefix cov: <https://w3id.org/italia/onto/COV/> .
+@prefix cpv: <https://w3id.org/italia/onto/CPV/> .
+@prefix ipac: <https://ipac.cultura.gov.it/onto/ipac/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ti: <https://w3id.org/italia/onto/TI/> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <https://w3id.org/arco4archives/shacl/> .
+
+ex:PublicationShape
+    a sh:NodeShape ;
+    sh:targetClass a-cd:Publication ;
+	sh:property [              
+		sh:path core:hasAgentRole ;
+        sh:minCount 1 ;
+		sh:class core:AgentRole ;
+        sh:severity sh:Violation ;
+        sh:message "La relazione con l'autore è obbligatoria: core:hasAgentRole deve essere materializzata" 
+		] ,
+	    [              
+		sh:path core:hasType ;
+		sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "La relazione con il tipo è obbligatoria: core:hasType deve essere materializzata" 
+		] ,
+        [
+		sh:path a-lite:title ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:class a-cd:Title ;
+        sh:message "La relazione con il titolo è obbligatoria: a-lite:title deve essere materializzata" 
+        ] ,
+        [
+		sh:path ti:atTime ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:class ti:TimeInterval ;
+        sh:message "La relazione con la data di pubblicazione è obbligatoria: ti.atTime deve essere materializzata"
+        ] ,
+        [
+		sh:path a-cd:hasEdition ;
+        sh:class a-cd:Edition ;
+        ] ;
+
+    sh:property [
+        sh:path a-arc:isReferenceOf ;
+        sh:or (
+            [sh:class a-arc:ArchivalResourceSet]
+            [sh:class a-arc:ArchivalUnit]
+            [sh:class a-arc:ArchivalItem]
+        )
+    ].
+
+ex:EditionShape
+    a sh:NodeShape ;
+    sh:targetClass a-cd:Edition ;
+    sh:property [
+        sh:path clv:hasSpatialCoverage ;
+        sh:class clv:Feature ;
+    ] ,
+    [
+        sh:path a-cd:hasResponsibility ;
+        sh:class cd:Responsibility ;
+    ] ,
+    [
+        sh:path ti:hasTemporalEntity ;
+        sh:class ti:TemporalEntity ;
+    ] .    
+
+ex:ResponsibilityShape
+   a sh:NodeShape ;
+   sh:targetClass a-cd:Responsibility ;
+   sh:property [
+       sh:path a-cd:hasAgentWithResponsibility ;
+       sh:class l0:Agent ;
+   ] .
+   
