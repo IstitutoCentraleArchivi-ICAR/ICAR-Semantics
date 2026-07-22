@@ -1252,6 +1252,17 @@ cis:CulturalEntity rdf:type owl:Class .
 ###  https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResponsibility
 :ArchivalResponsibility rdf:type owl:Class ;
                         rdfs:subClassOf a-cd:Responsibility ,
+                                        [ rdf:type owl:Class ;
+                                          owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                          owl:onProperty a-cd:hasInterventionRole ;
+                                                          owl:someValuesFrom :ArchivalCreator
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty a-cd:hasInterventionRole ;
+                                                          owl:someValuesFrom :ArchivalHolder
+                                                        ]
+                                                      )
+                                        ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :hasAcquisitionMode ;
                                           owl:allValuesFrom a-cd:AcquisitionType
