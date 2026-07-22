@@ -38,7 +38,7 @@
     rdfs:label "FormalOrganization".
 :s_000 a rr:SubjectMap.
 :map_FormalOrganization_000 rr:subjectMap :s_000.
-:s_000 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{identity/identityId}".
+:s_000 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{identity/identityId}".
 :pom_000 a rr:PredicateObjectMap.
 :map_FormalOrganization_000 rr:predicateObjectMap :pom_000.
 :pm_000 a rr:PredicateMap.
@@ -774,7 +774,7 @@
     rdfs:label "TimeIntervalInstitutionalProfile".
 :s_003 a rr:SubjectMap.
 :map_TimeIntervalInstitutionalProfile_000 rr:subjectMap :s_003.
-:s_003 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{identity/otherEntityTypes/otherEntityType/date}".
+:s_003 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{identity/otherEntityTypes/otherEntityType/date}".
 :pom_062 a rr:PredicateObjectMap.
 :map_TimeIntervalInstitutionalProfile_000 rr:predicateObjectMap :pom_062.
 :pm_062 a rr:PredicateMap.

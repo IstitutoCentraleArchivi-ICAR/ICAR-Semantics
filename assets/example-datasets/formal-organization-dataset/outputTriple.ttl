@@ -30,12 +30,12 @@
   ti:atTime <https://w3id.org/arco/archives/resource/time-interval/1927-1991>;
   l0:name "Finanzintendanz Bozen" .
 
-<https://w3id.org/arco/archives/resource/archivial-resource-set/1927-1991> a ti:TimeInterval;
+<https://w3id.org/arco/archives/resource/archival-resource-set/1927-1991> a ti:TimeInterval;
   rdfs:label "Intervallo di tempo 1927-1991,della risorsa  .. ufficio periferico postunitario .. "^^xsd:string;
   ti:hasTimeInstantInside <https://w3id.org/arco/archives/resource/time-instant/1927>,
     <https://w3id.org/arco/archives/resource/time-instant/1991> .
 
-<https://w3id.org/arco/archives/resource/archivial-resource-set/SIA%20AG%201021243>
+<https://w3id.org/arco/archives/resource/archival-resource-set/SIA%20AG%201021243>
   a Arco4Archive:FormalOrganization;
   rdfs:label "Organizzazione formale Intendenza di finanza di Bolzano, Bolzano (1927 - 1991) - SIA AG 1021243";
   Arco4Archive:closingDateInString "1991";

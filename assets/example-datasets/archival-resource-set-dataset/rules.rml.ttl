@@ -85,24 +85,24 @@
     rdfs:label "archivesConsistency";
     rml:source "archives-consistency-type.csv";
     rml:referenceFormulation ql:CSV.
-:rules_000 void:exampleResource :map_ArchivialResourceSet_000.
-:map_ArchivialResourceSet_000 rml:logicalSource :source_000;
+:rules_000 void:exampleResource :map_ArchivalResourceSet_000.
+:map_ArchivalResourceSet_000 rml:logicalSource :source_000;
     a rr:TriplesMap;
-    rdfs:label "ArchivialResourceSet".
+    rdfs:label "ArchivalResourceSet".
 :s_000 a rr:SubjectMap.
-:map_ArchivialResourceSet_000 rr:subjectMap :s_000.
-:s_000 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{did/unitid[1]}/".
+:map_ArchivalResourceSet_000 rr:subjectMap :s_000.
+:s_000 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{did/unitid[1]}/".
 :pom_000 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_000.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_000.
 :pm_000 a rr:PredicateMap.
 :pom_000 rr:predicateMap :pm_000.
 :pm_000 rr:constant rdf:type.
 :pom_000 rr:objectMap :om_000.
 :om_000 a rr:ObjectMap;
-    rr:constant Arco4Archive:ArchivialResourceSet;
+    rr:constant Arco4Archive:ArchivalResourceSet;
     rr:termType rr:IRI.
 :pom_001 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_001.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_001.
 :pm_001 a rr:PredicateMap.
 :pom_001 rr:predicateMap :pm_001.
 :pm_001 rr:constant core:hasIdentifier.
@@ -111,7 +111,7 @@
     rr:template "https://w3id.org/arco/archives/resource/identifier/{did/unitid[1]}";
     rr:termType rr:IRI.
 :pom_002 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_002.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_002.
 :pm_002 a rr:PredicateMap.
 :pom_002 rr:predicateMap :pm_002.
 :pm_002 rr:constant core:hasIdentifier.
@@ -120,7 +120,7 @@
     rr:template "https://w3id.org/arco/archives/resource/identifier/{did/unitid[@localType='altroId']}";
     rr:termType rr:IRI.
 :pom_003 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_003.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_003.
 :pm_003 a rr:PredicateMap.
 :pom_003 rr:predicateMap :pm_003.
 :pm_003 rr:constant core:hasIdentifier.
@@ -129,12 +129,12 @@
     rr:template "https://w3id.org/arco/archives/resource/identifier/{did/unitid[@localType='idPrecedente']}";
     rr:termType rr:IRI.
 :pom_004 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_004.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_004.
 :pm_004 a rr:PredicateMap.
 :pom_004 rr:predicateMap :pm_004.
 :pm_004 rr:constant core:hasType.
 :pom_005 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_005.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_005.
 :pm_005 a rr:PredicateMap.
 :pom_005 rr:predicateMap :pm_005.
 :pm_005 rr:constant rdfs:label.
@@ -143,7 +143,7 @@
     rr:template "Complesso archivistico: {did/unittitle[1]} - {did/unitid[1]}";
     rr:termType rr:Literal.
 :pom_006 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_006.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_006.
 :pm_006 a rr:PredicateMap.
 :pom_006 rr:predicateMap :pm_006.
 :pm_006 rr:constant arco-lite:localIdentifier.
@@ -153,7 +153,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_007 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_007.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_007.
 :pm_007 a rr:PredicateMap.
 :pom_007 rr:predicateMap :pm_007.
 :pm_007 rr:constant arco-lite:localIdentifier.
@@ -163,7 +163,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_008 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_008.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_008.
 :pm_008 a rr:PredicateMap.
 :pom_008 rr:predicateMap :pm_008.
 :pm_008 rr:constant arco-lite:nationalIdentifier.
@@ -173,7 +173,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_009 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_009.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_009.
 :pm_009 a rr:PredicateMap.
 :pom_009 rr:predicateMap :pm_009.
 :pm_009 rr:constant a-cd:hasDesignationInTime.
@@ -222,7 +222,7 @@
     rml:reference "did/unittitle[1]";
     rr:termType rr:Literal.
 :pom_013 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_013.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_013.
 :pm_013 a rr:PredicateMap.
 :pom_013 rr:predicateMap :pm_013.
 :pm_013 rr:constant arco-lite:currentDesignation.
@@ -232,7 +232,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_014 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_014.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_014.
 :pm_014 a rr:PredicateMap.
 :pom_014 rr:predicateMap :pm_014.
 :pm_014 rr:constant arco-lite:alternativeDesignation.
@@ -242,7 +242,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_015 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_015.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_015.
 :pm_015 a rr:PredicateMap.
 :pom_015 rr:predicateMap :pm_015.
 :pm_015 rr:constant a-cd:hasDesignationInTime.
@@ -291,7 +291,7 @@
     rml:reference "did/unittitle[@label='altraDenominazione']";
     rr:termType rr:Literal.
 :pom_019 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_019.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_019.
 :pm_019 a rr:PredicateMap.
 :pom_019 rr:predicateMap :pm_019.
 :pm_019 rr:constant Arco4Archive:totalExtentInLinearMeters.
@@ -301,7 +301,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_020 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_020.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_020.
 :pm_020 a rr:PredicateMap.
 :pom_020 rr:predicateMap :pm_020.
 :pm_020 rr:constant a-dd:hasConservationStatus.
@@ -310,7 +310,7 @@
     rr:template "https://w3id.org/arco/ontology/denotative-description/conservation-status/{did/unitid[1]}";
     rr:termType rr:IRI.
 :pom_021 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_021.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_021.
 :pm_021 a rr:PredicateMap.
 :pom_021 rr:predicateMap :pm_021.
 :pm_021 rr:constant ti:atTime.
@@ -353,7 +353,7 @@
     rml:reference "did/unitdatestructured/daterange/todate";
     rr:termType rr:Literal.
 :pom_025 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_025.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_025.
 :pm_025 a rr:PredicateMap.
 :pom_025 rr:predicateMap :pm_025.
 :pm_025 rr:constant core:description.
@@ -363,7 +363,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_026 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_026.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_026.
 :pm_026 a rr:PredicateMap.
 :pom_026 rr:predicateMap :pm_026.
 :pm_026 rr:constant a-cd:historicalInformation.
@@ -373,7 +373,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_027 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_027.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_027.
 :pm_027 a rr:PredicateMap.
 :pom_027 rr:predicateMap :pm_027.
 :pm_027 rr:constant core:specification.
@@ -383,7 +383,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_028 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_028.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_028.
 :pm_028 a rr:PredicateMap.
 :pom_028 rr:predicateMap :pm_028.
 :pm_028 rr:constant core:specification.
@@ -393,7 +393,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_029 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_029.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_029.
 :pm_029 a rr:PredicateMap.
 :pom_029 rr:predicateMap :pm_029.
 :pm_029 rr:constant core:note.
@@ -403,7 +403,7 @@
     rr:termType rr:Literal;
     rr:datatype xsd:string.
 :pom_030 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_030.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_030.
 :pm_030 a rr:PredicateMap.
 :pom_030 rr:predicateMap :pm_030.
 :pm_030 rr:constant Arco4Archive:hasConditionOfAccess.
@@ -452,7 +452,7 @@
     rml:reference "accessrestrict/accessrestrict[@localtype='noteCondizioniAccesso']/p";
     rr:termType rr:Literal.
 :pom_034 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_034.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_034.
 :pm_034 a rr:PredicateMap.
 :pom_034 rr:predicateMap :pm_034.
 :pm_034 rr:constant Arco4Archive:hasConditionOfUse.
@@ -501,16 +501,16 @@
     rml:reference "userrestrict/userrestrict[@localtype='noteCondizioniUtilizzo']/p";
     rr:termType rr:Literal.
 :pom_038 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_038.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_038.
 :pm_038 a rr:PredicateMap.
 :pom_038 rr:predicateMap :pm_038.
-:pm_038 rr:constant arco-lite:hasArchivialCreator.
+:pm_038 rr:constant arco-lite:hasArchivalCreator.
 :pom_038 rr:objectMap :om_037.
 :om_037 a rr:ObjectMap;
     rr:template "https://w3id.org/arco/archives/resource/agent/{relations/relation/relationentry[@localtype='soggettoProduttore']/@id}";
     rr:termType rr:IRI.
 :pom_039 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_039.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_039.
 :pm_039 a rr:PredicateMap.
 :pom_039 rr:predicateMap :pm_039.
 :pm_039 rr:constant a-cd:hasResponsibility.
@@ -532,7 +532,7 @@
     rr:constant idlab-fn:str.
 :pom_040 rr:objectMap :om_039.
 :om_039 a rr:ObjectMap;
-    rr:template "https://w3id.org/arco/archives/resource/archivial-responsibility/{did/unitid[1]}-";
+    rr:template "https://w3id.org/arco/archives/resource/archival-responsibility/{did/unitid[1]}-";
     rr:termType rr:Literal.
 :fn_009 rr:predicateObjectMap :pom_041.
 :pom_041 a rr:PredicateObjectMap;
@@ -592,16 +592,16 @@
     rr:constant "3";
     rr:termType rr:Literal.
 :pom_046 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_046.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_046.
 :pm_046 a rr:PredicateMap.
 :pom_046 rr:predicateMap :pm_046.
 :pm_046 rr:constant a-cd:hasResponsibility.
 :pom_046 rr:objectMap :om_045.
 :om_045 a rr:ObjectMap;
-    rr:template "https://w3id.org/arco/archives/resource/archivial-responsibility/{did/unitid[1]}-{relations/relation[@relationtype='cpfrelation']/relationentry/@id}";
+    rr:template "https://w3id.org/arco/archives/resource/archival-responsibility/{did/unitid[1]}-{relations/relation[@relationtype='cpfrelation']/relationentry/@id}";
     rr:termType rr:IRI.
 :pom_047 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_047.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_047.
 :pm_047 a rr:PredicateMap.
 :pom_047 rr:predicateMap :pm_047.
 :pm_047 rr:constant Arco4Archive:hasProject.
@@ -623,7 +623,7 @@
     rr:constant idlab-fn:str.
 :pom_048 rr:objectMap :om_047.
 :om_047 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/resource/archivial-resource-set/project/";
+    rr:constant "https://w3id.org/arco/archives/resource/archival-resource-set/project/";
     rr:termType rr:Literal.
 :fn_012 rr:predicateObjectMap :pom_049.
 :pom_049 a rr:PredicateObjectMap;
@@ -650,7 +650,7 @@
     rml:reference "relations/relation[@otherrelationtype='ProgettoCollegato']/relationentry";
     rr:termType rr:Literal.
 :pom_051 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_051.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_051.
 :pm_051 a rr:PredicateMap.
 :pom_051 rr:predicateMap :pm_051.
 :pm_051 rr:constant Arco4Archive:hasEvent.
@@ -672,7 +672,7 @@
     rr:constant idlab-fn:str.
 :pom_052 rr:objectMap :om_051.
 :om_051 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/resource/archivial-resource-set/event/";
+    rr:constant "https://w3id.org/arco/archives/resource/archival-resource-set/event/";
     rr:termType rr:Literal.
 :fn_014 rr:predicateObjectMap :pom_053.
 :pom_053 a rr:PredicateObjectMap;
@@ -699,7 +699,7 @@
     rml:reference "relations/relation[@otherrelationtype='EventoCollegato']/relationentry";
     rr:termType rr:Literal.
 :pom_055 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_055.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_055.
 :pm_055 a rr:PredicateMap.
 :pom_055 rr:predicateMap :pm_055.
 :pm_055 rr:constant Arco4Archive:hasReference.
@@ -748,7 +748,7 @@
     rml:reference "bibliography/p/ref[@linkrole='riferimentoWeb']/@href";
     rr:termType rr:Literal.
 :pom_059 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_059.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_059.
 :pm_059 a rr:PredicateMap.
 :pom_059 rr:predicateMap :pm_059.
 :pm_059 rr:constant Arco4Archive:hasSource.
@@ -797,7 +797,7 @@
     rml:reference "bibliography/archref/genreform/part[@localtype='fonteNormativa']/ref";
     rr:termType rr:Literal.
 :pom_063 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_063.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_063.
 :pm_063 a rr:PredicateMap.
 :pom_063 rr:predicateMap :pm_063.
 :pm_063 rr:constant Arco4Archive:hasReference.
@@ -846,7 +846,7 @@
     rml:reference "bibliography/bibref/title/part";
     rr:termType rr:Literal.
 :pom_067 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_067.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_067.
 :pm_067 a rr:PredicateMap.
 :pom_067 rr:predicateMap :pm_067.
 :pm_067 rr:constant Arco4Archive:hasOriginalRelation.
@@ -895,7 +895,7 @@
     rml:reference "originalsloc/p/title/part";
     rr:termType rr:Literal.
 :pom_071 a rr:PredicateObjectMap.
-:map_ArchivialResourceSet_000 rr:predicateObjectMap :pom_071.
+:map_ArchivalResourceSet_000 rr:predicateObjectMap :pom_071.
 :pm_071 a rr:PredicateMap.
 :pom_071 rr:predicateMap :pm_071.
 :pm_071 rr:constant Arco4Archive:hasCopyRelation.
@@ -943,15 +943,15 @@
 :om_073 a rr:ObjectMap;
     rml:reference "altformavail/p/title/part";
     rr:termType rr:Literal.
-:rules_000 void:exampleResource :map_ArchivialResourceSethasDocumentationExt_000.
-:map_ArchivialResourceSethasDocumentationExt_000 rml:logicalSource :source_006;
+:rules_000 void:exampleResource :map_ArchivalResourceSethasDocumentationExt_000.
+:map_ArchivalResourceSethasDocumentationExt_000 rml:logicalSource :source_006;
     a rr:TriplesMap;
-    rdfs:label "ArchivialResourceSethasDocumentationExt".
+    rdfs:label "ArchivalResourceSethasDocumentationExt".
 :s_001 a rr:SubjectMap.
-:map_ArchivialResourceSethasDocumentationExt_000 rr:subjectMap :s_001.
-:s_001 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{preceding::did/unitid[1]}/".
+:map_ArchivalResourceSethasDocumentationExt_000 rr:subjectMap :s_001.
+:s_001 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{preceding::did/unitid[1]}/".
 :pom_075 a rr:PredicateObjectMap.
-:map_ArchivialResourceSethasDocumentationExt_000 rr:predicateObjectMap :pom_075.
+:map_ArchivalResourceSethasDocumentationExt_000 rr:predicateObjectMap :pom_075.
 :pm_075 a rr:PredicateMap.
 :pom_075 rr:predicateMap :pm_075.
 :pm_075 rr:constant Arco4Archive:hasDocumentationRelation.
@@ -1134,15 +1134,15 @@
 :om_088 a rr:ObjectMap;
     rml:reference "title";
     rr:termType rr:Literal.
-:rules_000 void:exampleResource :map_ArchivialResourceSethasDocumentationInt_000.
-:map_ArchivialResourceSethasDocumentationInt_000 rml:logicalSource :source_006;
+:rules_000 void:exampleResource :map_ArchivalResourceSethasDocumentationInt_000.
+:map_ArchivalResourceSethasDocumentationInt_000 rml:logicalSource :source_006;
     a rr:TriplesMap;
-    rdfs:label "ArchivialResourceSethasDocumentationInt".
+    rdfs:label "ArchivalResourceSethasDocumentationInt".
 :s_002 a rr:SubjectMap.
-:map_ArchivialResourceSethasDocumentationInt_000 rr:subjectMap :s_002.
-:s_002 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{preceding::did/unitid[1]}/".
+:map_ArchivalResourceSethasDocumentationInt_000 rr:subjectMap :s_002.
+:s_002 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{preceding::did/unitid[1]}/".
 :pom_090 a rr:PredicateObjectMap.
-:map_ArchivialResourceSethasDocumentationInt_000 rr:predicateObjectMap :pom_090.
+:map_ArchivalResourceSethasDocumentationInt_000 rr:predicateObjectMap :pom_090.
 :pm_090 a rr:PredicateMap.
 :pom_090 rr:predicateMap :pm_090.
 :pm_090 rr:constant Arco4Archive:hasDocumentationRelation.
@@ -1203,7 +1203,7 @@
     rr:constant grel:p_array_a.
 :pom_094 rr:objectMap :om_093.
 :om_093 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/resource/archivial-resource-set/internal-related-doc/";
+    rr:constant "https://w3id.org/arco/archives/resource/archival-resource-set/internal-related-doc/";
     rr:termType rr:Literal.
 :fn_036 rr:predicateObjectMap :pom_095.
 :pom_095 a rr:PredicateObjectMap;
@@ -1238,24 +1238,24 @@
 :om_096 a rr:ObjectMap;
     rml:reference "ref/@target";
     rr:termType rr:Literal.
-:rules_000 void:exampleResource :map_ArchivialResourceSetSR_000.
-:map_ArchivialResourceSetSR_000 rml:logicalSource :source_004;
+:rules_000 void:exampleResource :map_ArchivalResourceSetSR_000.
+:map_ArchivalResourceSetSR_000 rml:logicalSource :source_004;
     a rr:TriplesMap;
-    rdfs:label "ArchivialResourceSetSR".
+    rdfs:label "ArchivalResourceSetSR".
 :s_003 a rr:SubjectMap.
-:map_ArchivialResourceSetSR_000 rr:subjectMap :s_003.
-:s_003 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{preceding::did/unitid[1]}/".
+:map_ArchivalResourceSetSR_000 rr:subjectMap :s_003.
+:s_003 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{preceding::did/unitid[1]}/".
 :pom_098 a rr:PredicateObjectMap.
-:map_ArchivialResourceSetSR_000 rr:predicateObjectMap :pom_098.
+:map_ArchivalResourceSetSR_000 rr:predicateObjectMap :pom_098.
 :pm_098 a rr:PredicateMap.
 :pom_098 rr:predicateMap :pm_098.
 :pm_098 rr:constant rdf:type.
 :pom_098 rr:objectMap :om_097.
 :om_097 a rr:ObjectMap;
-    rr:constant Arco4Archive:ArchivialResourceSet;
+    rr:constant Arco4Archive:ArchivalResourceSet;
     rr:termType rr:IRI.
 :pom_099 a rr:PredicateObjectMap.
-:map_ArchivialResourceSetSR_000 rr:predicateObjectMap :pom_099.
+:map_ArchivalResourceSetSR_000 rr:predicateObjectMap :pom_099.
 :pm_099 a rr:PredicateMap.
 :pom_099 rr:predicateMap :pm_099.
 :pm_099 rr:constant Arco4Archive:isDescribedBy.
@@ -1303,24 +1303,24 @@
 :om_101 a rr:ObjectMap;
     rml:reference "./*[1]";
     rr:termType rr:Literal.
-:rules_000 void:exampleResource :map_ArchivialResourceSetExt_000.
-:map_ArchivialResourceSetExt_000 rml:logicalSource :source_001;
+:rules_000 void:exampleResource :map_ArchivalResourceSetExt_000.
+:map_ArchivalResourceSetExt_000 rml:logicalSource :source_001;
     a rr:TriplesMap;
-    rdfs:label "ArchivialResourceSetExt".
+    rdfs:label "ArchivalResourceSetExt".
 :s_004 a rr:SubjectMap.
-:map_ArchivialResourceSetExt_000 rr:subjectMap :s_004.
-:s_004 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{ancestor::did/unitid[1]}/".
+:map_ArchivalResourceSetExt_000 rr:subjectMap :s_004.
+:s_004 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{ancestor::did/unitid[1]}/".
 :pom_103 a rr:PredicateObjectMap.
-:map_ArchivialResourceSetExt_000 rr:predicateObjectMap :pom_103.
+:map_ArchivalResourceSetExt_000 rr:predicateObjectMap :pom_103.
 :pm_103 a rr:PredicateMap.
 :pom_103 rr:predicateMap :pm_103.
 :pm_103 rr:constant rdf:type.
 :pom_103 rr:objectMap :om_102.
 :om_102 a rr:ObjectMap;
-    rr:constant Arco4Archive:ArchivialResourceSet;
+    rr:constant Arco4Archive:ArchivalResourceSet;
     rr:termType rr:IRI.
 :pom_104 a rr:PredicateObjectMap.
-:map_ArchivialResourceSetExt_000 rr:predicateObjectMap :pom_104.
+:map_ArchivalResourceSetExt_000 rr:predicateObjectMap :pom_104.
 :pm_104 a rr:PredicateMap.
 :pom_104 rr:predicateMap :pm_104.
 :pm_104 rr:constant Arco4Archive:hasExtent.
@@ -1392,24 +1392,24 @@
 :om_108 a rr:ObjectMap;
     rml:reference "quantity";
     rr:termType rr:Literal.
-:rules_000 void:exampleResource :map_ArchivialResourceSetTopic_000.
-:map_ArchivialResourceSetTopic_000 rml:logicalSource :source_003;
+:rules_000 void:exampleResource :map_ArchivalResourceSetTopic_000.
+:map_ArchivalResourceSetTopic_000 rml:logicalSource :source_003;
     a rr:TriplesMap;
-    rdfs:label "ArchivialResourceSetTopic".
+    rdfs:label "ArchivalResourceSetTopic".
 :s_005 a rr:SubjectMap.
-:map_ArchivialResourceSetTopic_000 rr:subjectMap :s_005.
-:s_005 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{preceding::did/unitid[1]}/".
+:map_ArchivalResourceSetTopic_000 rr:subjectMap :s_005.
+:s_005 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{preceding::did/unitid[1]}/".
 :pom_110 a rr:PredicateObjectMap.
-:map_ArchivialResourceSetTopic_000 rr:predicateObjectMap :pom_110.
+:map_ArchivalResourceSetTopic_000 rr:predicateObjectMap :pom_110.
 :pm_110 a rr:PredicateMap.
 :pom_110 rr:predicateMap :pm_110.
 :pm_110 rr:constant rdf:type.
 :pom_110 rr:objectMap :om_109.
 :om_109 a rr:ObjectMap;
-    rr:constant Arco4Archive:ArchivialResourceSet;
+    rr:constant Arco4Archive:ArchivalResourceSet;
     rr:termType rr:IRI.
 :pom_111 a rr:PredicateObjectMap.
-:map_ArchivialResourceSetTopic_000 rr:predicateObjectMap :pom_111.
+:map_ArchivalResourceSetTopic_000 rr:predicateObjectMap :pom_111.
 :pm_111 a rr:PredicateMap.
 :pom_111 rr:predicateMap :pm_111.
 :pm_111 rr:constant a-cd:hasSubject.
@@ -1457,24 +1457,24 @@
 :om_113 a rr:ObjectMap;
     rml:reference "part";
     rr:termType rr:Literal.
-:rules_000 void:exampleResource :map_ArchivialResourceSetArrang_000.
-:map_ArchivialResourceSetArrang_000 rml:logicalSource :source_002;
+:rules_000 void:exampleResource :map_ArchivalResourceSetArrang_000.
+:map_ArchivalResourceSetArrang_000 rml:logicalSource :source_002;
     a rr:TriplesMap;
-    rdfs:label "ArchivialResourceSetArrang".
+    rdfs:label "ArchivalResourceSetArrang".
 :s_006 a rr:SubjectMap.
-:map_ArchivialResourceSetArrang_000 rr:subjectMap :s_006.
-:s_006 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/{preceding::did/unitid[1]}/".
+:map_ArchivalResourceSetArrang_000 rr:subjectMap :s_006.
+:s_006 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/{preceding::did/unitid[1]}/".
 :pom_115 a rr:PredicateObjectMap.
-:map_ArchivialResourceSetArrang_000 rr:predicateObjectMap :pom_115.
+:map_ArchivalResourceSetArrang_000 rr:predicateObjectMap :pom_115.
 :pm_115 a rr:PredicateMap.
 :pom_115 rr:predicateMap :pm_115.
 :pm_115 rr:constant rdf:type.
 :pom_115 rr:objectMap :om_114.
 :om_114 a rr:ObjectMap;
-    rr:constant Arco4Archive:ArchivialResourceSet;
+    rr:constant Arco4Archive:ArchivalResourceSet;
     rr:termType rr:IRI.
 :pom_116 a rr:PredicateObjectMap.
-:map_ArchivialResourceSetArrang_000 rr:predicateObjectMap :pom_116.
+:map_ArchivalResourceSetArrang_000 rr:predicateObjectMap :pom_116.
 :pm_116 a rr:PredicateMap.
 :pom_116 rr:predicateMap :pm_116.
 :pm_116 rr:constant Arco4Archive:hasArrangement.
@@ -2047,7 +2047,7 @@
     rr:constant idlab-fn:str.
 :pom_163 rr:objectMap :om_162.
 :om_162 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/resource/archivial-resource-set/web-reference/";
+    rr:constant "https://w3id.org/arco/archives/resource/archival-resource-set/web-reference/";
     rr:termType rr:Literal.
 :fn_057 rr:predicateObjectMap :pom_164.
 :pom_164 a rr:PredicateObjectMap;
@@ -2370,7 +2370,7 @@
     rr:constant idlab-fn:str.
 :pom_191 rr:objectMap :om_190.
 :om_190 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/resource/archivial-resource/";
+    rr:constant "https://w3id.org/arco/archives/resource/archival-resource/";
     rr:termType rr:Literal.
 :fn_067 rr:predicateObjectMap :pom_192.
 :pom_192 a rr:PredicateObjectMap;
@@ -2554,7 +2554,7 @@
     rr:constant grel:p_array_a.
 :pom_205 rr:objectMap :om_204.
 :om_204 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/resource/archivial-resource-set/internal-related-doc/";
+    rr:constant "https://w3id.org/arco/archives/resource/archival-resource-set/internal-related-doc/";
     rr:termType rr:Literal.
 :fn_075 rr:predicateObjectMap :pom_206.
 :pom_206 a rr:PredicateObjectMap;
@@ -2657,7 +2657,7 @@
     rr:constant grel:p_array_a.
 :pom_215 rr:objectMap :om_214.
 :om_214 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/resource/archivial-resource/";
+    rr:constant "https://w3id.org/arco/archives/resource/archival-resource/";
     rr:termType rr:Literal.
 :fn_077 rr:predicateObjectMap :pom_216.
 :pom_216 a rr:PredicateObjectMap;
@@ -2698,7 +2698,7 @@
     rdfs:label "ResponsibilityC".
 :s_016 a rr:SubjectMap.
 :map_ResponsibilityC_000 rr:subjectMap :s_016.
-:s_016 rr:template "https://w3id.org/arco/archives/resource/archivial-responsibility/{preceding::did/unitid[1]}-{relationentry/@id}".
+:s_016 rr:template "https://w3id.org/arco/archives/resource/archival-responsibility/{preceding::did/unitid[1]}-{relationentry/@id}".
 :pom_219 a rr:PredicateObjectMap.
 :map_ResponsibilityC_000 rr:predicateObjectMap :pom_219.
 :pm_219 a rr:PredicateMap.
@@ -2782,7 +2782,7 @@
     rr:constant idlab-fn:str.
 :pom_226 rr:objectMap :om_225.
 :om_225 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/ontology/archival-resource/ArchivialCreator";
+    rr:constant "https://w3id.org/arco/archives/ontology/archival-resource/ArchivalCreator";
     rr:termType rr:IRI.
 :pom_227 a rr:PredicateObjectMap.
 :map_ResponsibilityC_000 rr:predicateObjectMap :pom_227.
@@ -2841,7 +2841,7 @@
     rr:constant idlab-fn:str.
 :pom_230 rr:objectMap :om_229.
 :om_229 a rr:ObjectMap;
-    rr:template "https://w3id.org/arco/archives/resource/archivial-responsibility/{preceding::did/unitid[1]}-";
+    rr:template "https://w3id.org/arco/archives/resource/archival-responsibility/{preceding::did/unitid[1]}-";
     rr:termType rr:Literal.
 :fn_082 rr:predicateObjectMap :pom_231.
 :pom_231 a rr:PredicateObjectMap;
@@ -2984,7 +2984,7 @@
     rr:constant idlab-fn:str.
 :pom_243 rr:objectMap :om_242.
 :om_242 a rr:ObjectMap;
-    rr:constant "https://w3id.org/arco/archives/ontology/archival-resource/ArchivialHolder";
+    rr:constant "https://w3id.org/arco/archives/ontology/archival-resource/ArchivalHolder";
     rr:termType rr:IRI.
 :pom_244 a rr:PredicateObjectMap.
 :map_ResponsibilityH_000 rr:predicateObjectMap :pom_244.
@@ -3563,7 +3563,7 @@
     rdfs:label "TimeInterval".
 :s_023 a rr:SubjectMap.
 :map_TimeInterval_000 rr:subjectMap :s_023.
-:s_023 rr:template "https://w3id.org/arco/archives/resource/archivial-resource-set/time-interval/{did/unitdatestructured/daterange/fromdate}-{did/unitdatestructured/daterange/todate}".
+:s_023 rr:template "https://w3id.org/arco/archives/resource/archival-resource-set/time-interval/{did/unitdatestructured/daterange/fromdate}-{did/unitdatestructured/daterange/todate}".
 :pom_290 a rr:PredicateObjectMap.
 :map_TimeInterval_000 rr:predicateObjectMap :pom_290.
 :pm_290 a rr:PredicateMap.

@@ -68,19 +68,19 @@ sources:
 
 
 mappings:
-    #Mapping entità archivial resource set
-    ArchivialResourceSet:   
+    #Mapping entità archival resource set
+    ArchivalResourceSet:   
         sources: 
         - archdescIterator
-        s:  https://w3id.org/arco/archives/resource/archivial-resource-set/$(did/unitid[1])/
+        s:  https://w3id.org/arco/archives/resource/archival-resource-set/$(did/unitid[1])/
         po:
-        - [a, Arco4Archive:ArchivialResourceSet]
+        - [a, Arco4Archive:ArchivalResourceSet]
         - [core:hasIdentifier, "https://w3id.org/arco/archives/resource/identifier/$(did/unitid[1])~iri"]
         - [core:hasIdentifier, "https://w3id.org/arco/archives/resource/identifier/$(did/unitid[@localType='altroId'])~iri"]
         - [core:hasIdentifier, "https://w3id.org/arco/archives/resource/identifier/$(did/unitid[@localType='idPrecedente'])~iri"]
         - p: core:hasType
           o: 
-          - mapping: LevelOfDescription                                                             #matching con vocabolario controllato archivialHierarchy
+          - mapping: LevelOfDescription                                                             #matching con vocabolario controllato archivalHierarchy
             condition:                                 
               function: equal
               parameters:
@@ -151,7 +151,7 @@ mappings:
                 parameters:
                 - [grel:valueParameter:str, "$(userrestrict/userrestrict[@localtype='noteCondizioniUtilizzo']/p)"]      
             type: iri                                                              
-        - [arco-lite:hasArchivialCreator,"https://w3id.org/arco/archives/resource/agent/$(relations/relation/relationentry[@localtype='soggettoProduttore']/@id)~iri"]                              
+        - [arco-lite:hasArchivalCreator,"https://w3id.org/arco/archives/resource/agent/$(relations/relation/relationentry[@localtype='soggettoProduttore']/@id)~iri"]                              
         - p: a-cd:hasResponsibility     #Responsibility del soggetto conservatore      vedere se si può aggiungere un numero progressivo nello URI "https://w3id.org/arco/archives/resource/responsibility/idbene-progressivo, altrimenti hash di id bene id agente e ruolo"
           o:
             function: fno:concat
@@ -169,7 +169,7 @@ mappings:
                       - [grel:p_string_sep, \.]
                 - [grel:param_int_i_from,3]
             type: iri
-        - [a-cd:hasResponsibility, "https://w3id.org/arco/archives/resource/archivial-responsibility/$(did/unitid[1])-$(relations/relation[@relationtype='cpfrelation']/relationentry/@id)~iri"]     #Responsibility del soggetto produttore
+        - [a-cd:hasResponsibility, "https://w3id.org/arco/archives/resource/archival-responsibility/$(did/unitid[1])-$(relations/relation[@relationtype='cpfrelation']/relationentry/@id)~iri"]     #Responsibility del soggetto produttore
         - p: Arco4Archive:hasProject
           o:
             function: fno:concat
@@ -192,7 +192,7 @@ mappings:
                 parameters:
                 - [fno:str, "$(relations/relation[@otherrelationtype='EventoCollegato']/relationentry)"]
             type: iri 
-        - p: Arco4Archive:hasReference    #Se ci fosse più di una entry una bisognerebbe spostarlo fuori da ArchivialResourceSet con una source iterativa
+        - p: Arco4Archive:hasReference    #Se ci fosse più di una entry una bisognerebbe spostarlo fuori da ArchivalResourceSet con una source iterativa
           o: 
             function: fno:concat
             parameters:
@@ -203,7 +203,7 @@ mappings:
                 parameters:
                 - [grel:valueParameter,"$(bibliography/p/ref[@linkrole='riferimentoWeb']/@href)"]
             type: iri
-        - p: Arco4Archive:hasSource    #Se ci fosse più di una entry una bisognerebbe spostarlo fuori da ArchivialResourceSet con una source iterativa
+        - p: Arco4Archive:hasSource    #Se ci fosse più di una entry una bisognerebbe spostarlo fuori da ArchivalResourceSet con una source iterativa
           o: 
             function: fno:concat
             parameters:
@@ -247,11 +247,11 @@ mappings:
                 parameters:                                                                                                     
                 - [grel:valueParameter:str,$(altformavail/p/title/part)]                                                         
             type: iri
-    #Relazione con la documentazione esterna dell'archivial resource set, distaccata dall'altro mapping per poter cambiare la sorgente di iterazione
-    ArchivialResourceSethasDocumentationExt:  
+    #Relazione con la documentazione esterna dell'archival resource set, distaccata dall'altro mapping per poter cambiare la sorgente di iterazione
+    ArchivalResourceSethasDocumentationExt:  
       sources:
       - documentationIterator
-      s: "https://w3id.org/arco/archives/resource/archivial-resource-set/$(preceding::did/unitid[1])/"
+      s: "https://w3id.org/arco/archives/resource/archival-resource-set/$(preceding::did/unitid[1])/"
       po:
       - p: Arco4Archive:hasDocumentationRelation                                                         
         o:
@@ -293,11 +293,11 @@ mappings:
                               - [grel:p_array_a,"$(../../did/unitid[1])"]
                               - [grel:p_array_a,"$(title)"]
           type: iri  
-    #Relazione con la documentazione interna dell'archivial resource set, distaccata dall'altro mapping per poter cambiare la sorgente di iterazione
-    ArchivialResourceSethasDocumentationInt:  
+    #Relazione con la documentazione interna dell'archival resource set, distaccata dall'altro mapping per poter cambiare la sorgente di iterazione
+    ArchivalResourceSethasDocumentationInt:  
           sources:
           - documentationIterator
-          s: "https://w3id.org/arco/archives/resource/archivial-resource-set/$(preceding::did/unitid[1])/"
+          s: "https://w3id.org/arco/archives/resource/archival-resource-set/$(preceding::did/unitid[1])/"
           po:
           - p: Arco4Archive:hasDocumentationRelation                                         
             o:
@@ -320,13 +320,13 @@ mappings:
                       parameters:
                       - [fno:str, "$(ref/@target)"]                        
               type: iri
-    #Relazione tra archivial resource set e strumento di ricerca, divisa dal mapping per poter iterare tutte le entry con diversa source
-    ArchivialResourceSetSR:
+    #Relazione tra archival resource set e strumento di ricerca, divisa dal mapping per poter iterare tutte le entry con diversa source
+    ArchivalResourceSetSR:
       sources:
       - findingAidIterator
-      s: "https://w3id.org/arco/archives/resource/archivial-resource-set/$(preceding::did/unitid[1])/"
+      s: "https://w3id.org/arco/archives/resource/archival-resource-set/$(preceding::did/unitid[1])/"
       po:
-      - [a, Arco4Archive:ArchivialResourceSet]  
+      - [a, Arco4Archive:ArchivalResourceSet]  
       - p: Arco4Archive:isDescribedBy
         o: 
               function: grel:array_join
@@ -338,13 +338,13 @@ mappings:
                   parameters:
                   - [grel:valueParameter, "$(./*[1])"]
               type: iri
-    #Relazione tra archivial resource set e extent, divisa dal mapping per poter iterare tutte le entry con diversa source
-    ArchivialResourceSetExt:
+    #Relazione tra archival resource set e extent, divisa dal mapping per poter iterare tutte le entry con diversa source
+    ArchivalResourceSetExt:
       sources:
       - extentIterator
-      s: "https://w3id.org/arco/archives/resource/archivial-resource-set/$(ancestor::did/unitid[1])/"
+      s: "https://w3id.org/arco/archives/resource/archival-resource-set/$(ancestor::did/unitid[1])/"
       po:
-      - [a, Arco4Archive:ArchivialResourceSet]  
+      - [a, Arco4Archive:ArchivalResourceSet]  
       - p: Arco4Archive:hasExtent
         o:
                 function: grel:array_join
@@ -361,13 +361,13 @@ mappings:
                         - [grel:p_array_a,"$(unittype)"] 
                         - [grel:p_array_a,"$(quantity)"] 
                 type: iri
-    #Relazione tra archivial resource set e topic, divisa dal mapping per poter iterare tutte le entry con diversa source
-    ArchivialResourceSetTopic:
+    #Relazione tra archival resource set e topic, divisa dal mapping per poter iterare tutte le entry con diversa source
+    ArchivalResourceSetTopic:
       sources:
       - temaIterator
-      s: "https://w3id.org/arco/archives/resource/archivial-resource-set/$(preceding::did/unitid[1])/"
+      s: "https://w3id.org/arco/archives/resource/archival-resource-set/$(preceding::did/unitid[1])/"
       po:
-      - [a, Arco4Archive:ArchivialResourceSet]  
+      - [a, Arco4Archive:ArchivalResourceSet]  
       - p: a-cd:hasSubject
         o:
                 function: grel:array_join
@@ -379,13 +379,13 @@ mappings:
                     parameters:
                     - [fno:str,"$(part)"] 
                 type: iri
-    #Relazione tra archivial resource set e arrangement, divisa dal mapping per poter iterare tutte le entry con diversa source
-    ArchivialResourceSetArrang: #Per ora lascio diviso dal resto nel caso servisse la precedente mappatura (commentata), per ora abbiamo deciso di farle collidere perché il criterio di arrangement secondo sia è uno solo
+    #Relazione tra archival resource set e arrangement, divisa dal mapping per poter iterare tutte le entry con diversa source
+    ArchivalResourceSetArrang: #Per ora lascio diviso dal resto nel caso servisse la precedente mappatura (commentata), per ora abbiamo deciso di farle collidere perché il criterio di arrangement secondo sia è uno solo
       sources:
       - arrangementIterator
-      s: "https://w3id.org/arco/archives/resource/archivial-resource-set/$(preceding::did/unitid[1])/"
+      s: "https://w3id.org/arco/archives/resource/archival-resource-set/$(preceding::did/unitid[1])/"
       po:
-      - [a, Arco4Archive:ArchivialResourceSet]
+      - [a, Arco4Archive:ArchivalResourceSet]
       - [Arco4Archive:hasArrangement,"https://w3id.org/arco/archives/resource/arrangement/$(preceding::did/unitid[1])~iri"] #Messo così per far collidere tutto in uno
       #- p: Arco4Archive:hasArrangement                        #risolto problema sovrascrizione      #Visto che l'arrangement è solo uno, colleghiamo tutto a lui
       #  o: 
@@ -433,7 +433,7 @@ mappings:
       - [l0:identifier, "$(did/unitid[@localType='idPrecedente'])"]
       - [core:hasType, core:AlternativeIdentifier~iri]
       - [core:current, "false", xsd:boolean]
-    #Reificazione della relazione copia-originale con l'archivial resorce set, mapping dell'originale
+    #Reificazione della relazione copia-originale con l'archival resorce set, mapping dell'originale
     CopyOrOriginalRelationOriginal:   
       sources:
       - archdescIterator
@@ -473,7 +473,7 @@ mappings:
               parameters:
               - [grel:valueParameter,$(originalsloc/p/title/part)]
           type: iri
-    #Reificazione della relazione copia-originale con l'archivial resorce set, mapping della copia
+    #Reificazione della relazione copia-originale con l'archival resorce set, mapping della copia
     CopyOrOriginalRelationCopy:
       sources:
       - archdescIterator
@@ -561,7 +561,7 @@ mappings:
       - [rdfs:label, "Riferimento web della risorsa $(../../did/unitid[1])",it~lang]
       - [l0:name, "Riferimento web della risorsa $(../../did/unitid[1])",it~lang]
       - [sm:URL, "$(ref[@linkrole='riferimentoWeb']/@href)~iri"]
-    #Reificazione della relazione tra Archivial Resource set e documentazione, mapping della documentazione esterna
+    #Reificazione della relazione tra Archival Resource set e documentazione, mapping della documentazione esterna
     DocumentationRelationExt:
       sources:
       - documentationIterator
@@ -615,7 +615,7 @@ mappings:
                       type: iri
                       function: fno:concat
                       parameters:
-                      - [fno:str, "https://w3id.org/arco/archives/resource/archivial-resource/"]
+                      - [fno:str, "https://w3id.org/arco/archives/resource/archival-resource/"]
                       - parameter: fno:otherStr
                         value:
                             function: grel:string_md5
@@ -641,9 +641,9 @@ mappings:
                                     parameters:
                                     - [grel:p_array_a,"$(../../did/unitid[1])"]
                                     - [grel:p_array_a,"$(title)"]
-      #has archival resource "https://w3id.org/arco/archives/resource/archivial-resource/" md5 url o title
+      #has archival resource "https://w3id.org/arco/archives/resource/archival-resource/" md5 url o title
 
-    #Reificazione della relazione tra Archivial Resource set e documentazione, mapping della documentazione interna
+    #Reificazione della relazione tra Archival Resource set e documentazione, mapping della documentazione interna
     DocumentationRelationInt:
       sources:
       - documentationIterator
@@ -676,7 +676,7 @@ mappings:
         o:  
             function: grel:array_join
             parameters:
-            - [grel:p_array_a,"https://w3id.org/arco/archives/resource/archivial-resource/"]
+            - [grel:p_array_a,"https://w3id.org/arco/archives/resource/archival-resource/"]
             - parameter: grel:p_array_a
               value:
                 function: fno:slugify
@@ -688,13 +688,13 @@ mappings:
     ResponsibilityC:                  
       sources:
       - relationsIterator
-      s: "https://w3id.org/arco/archives/resource/archivial-responsibility/$(preceding::did/unitid[1])-$(relationentry/@id)"     #aggiungere al posto di archivial-holder id complesso archivistico e - id soggett conservatore 
+      s: "https://w3id.org/arco/archives/resource/archival-responsibility/$(preceding::did/unitid[1])-$(relationentry/@id)"     #aggiungere al posto di archival-holder id complesso archivistico e - id soggett conservatore 
       po:
       - [a, a-cd:Responsibility]
       - [rdfs:label, "Responsabilità archivistica della risorsa $(../did/unitid[1])",it~lang]
       - [a-cd:hasAgentWithResponsibility, "https://w3id.org/arco/archives/resource/agent/$(.[@relationtype='cpfrelation']/relationentry[@localtype='soggettoProduttore']/@id)~iri"]
       - p: a-cd:hasInterventionRole
-        o:  "https://w3id.org/arco/archives/ontology/archival-resource/ArchivialCreator~iri"
+        o:  "https://w3id.org/arco/archives/ontology/archival-resource/ArchivalCreator~iri"
         condition:
           function: equal
           parameters:
@@ -714,7 +714,7 @@ mappings:
         s: 
             function: fno:concat
             parameters:
-            - [fno:str, "https://w3id.org/arco/archives/resource/archivial-responsibility/$(preceding::did/unitid[1])-" ]
+            - [fno:str, "https://w3id.org/arco/archives/resource/archival-responsibility/$(preceding::did/unitid[1])-" ]
             - parameter: fno:otherStr
               value:
                 function: grel:array_get
@@ -731,7 +731,7 @@ mappings:
         - [rdfs:label, "Responsabilità archivistica della risorsa $(../did/unitid[1])",xsd:string,it~lang]
         - [a-cd:hasAgentWithResponsibility, "https://w3id.org/arco/archives/resource/agent/$(.[@relationtype='cpfrelation']/relationentry[@localtype='Soggetto conservatore'])~iri"] #si potrebbe splittare anche qui come nel soggeto
         - p: a-cd:hasInterventionRole
-          o:  "https://w3id.org/arco/archives/ontology/archival-resource/ArchivialHolder~iri"
+          o:  "https://w3id.org/arco/archives/ontology/archival-resource/ArchivalHolder~iri"
           condition:
             function: equal
             parameters:
@@ -860,7 +860,7 @@ mappings:
       - [core:current, "true", xsd:boolean]
       - [l0:name, "$(did/unittitle[1])",it~lang]
 
-    #intervallo di tempo base, archivial resource set
+    #intervallo di tempo base, archival resource set
     TimeInterval:
         sources:
         - archdescIterator
@@ -941,7 +941,7 @@ mappings:
                                 - [grel:p_string_sep,"-"]
                     - [grel:param_int_i_from,1]
                 type: iri
-    #Istante di tempo base- archivial resource set, start (iniziale)
+    #Istante di tempo base- archival resource set, start (iniziale)
     TimeInstantS:       
         sources:
         - archdescIterator
@@ -951,7 +951,7 @@ mappings:
         - [rdfs:label, "Istante di tempo iniziale $(did/unitdatestructured/daterange/fromdate) dell'intervallo $(did/unitdatestructured/daterange/fromdate)-$(did/unitdatestructured/daterange/todate) relativo alla risorsa $(did/unitid[1])",xsd:string]
         - [core:note,"$(did/didnote[@label='Note_a_Estremo_recente_Complesso'])",it~lang]
         - [Arco4Archive:inIntervalPosition,"start"]
-    #Istante di tempo base- archivial resource set, end (finale)
+    #Istante di tempo base- archival resource set, end (finale)
     TimeInstantE:
         sources:
         - archdescIterator
