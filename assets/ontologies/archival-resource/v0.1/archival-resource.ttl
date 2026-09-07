@@ -22,7 +22,6 @@
 @prefix opla: <http://www.ontologydesignpatterns.org/opla/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix a-arc: <https://w3id.org/arco/ontology/archive/> .
 @prefix a-cat: <https://w3id.org/arco/ontology/catalogue/> .
 @prefix opla1: <http://ontologydesignpatterns.org/opla/> .
 @prefix terms: <http://purl.org/dc/terms/> .
@@ -71,13 +70,13 @@
                                                              dcat:theme <http://publications.europa.eu/resource/authority/data-theme/EDUC> ;
                                                              admsapit:acronym "AR" ;
                                                              admsapit:hasFormalityLevel admsapit:Formal ;
-                                                             admsapit:hasKeyClass a-arc:ArchivalCreator ,
-                                                                                  a-arc:ArchivalHolder ,
-                                                                                  a-arc:ArchivalItem ,
-                                                                                  a-arc:ArchivalResource ,
-                                                                                  a-arc:ArchivalResourceSet ,
-                                                                                  a-arc:ArchivalUnit ,
-                                                                                  a-arc:LevelOfDescription ;
+                                                             admsapit:hasKeyClass :ArchivalCreator ,
+                                                                                  :ArchivalHolder ,
+                                                                                  :ArchivalItem ,
+                                                                                  :ArchivalResource ,
+                                                                                  :ArchivalResourceSet ,
+                                                                                  :ArchivalUnit ,
+                                                                                  :LevelOfDescription ;
                                                              admsapit:hasOntologyLanguage admsapit:OWL ;
                                                              admsapit:hasSemanticAssetDistribution <https://w3id.org/arco/resource/distribution/ARC-RDF-TURTLE> ,
                                                                                                    <https://w3id.org/arco/resource/distribution/ARC-RDF-XML> ;
@@ -821,20 +820,6 @@ TI:hasTimeParameter rdf:type owl:ObjectProperty .
                                      "unstable"@en .
 
 
-###  https://w3id.org/arco/archives/ontology/archival-resource/extent
-:extent rdf:type owl:DatatypeProperty ;
-        rdfs:domain :ArchivalResource ;
-        rdfs:range rdfs:Literal ;
-        rdfs:comment "This property indicates the number and type of elements that compose the archival resource"@en ,
-                     "questa proprietà indica il numero e il tipo di elementi che compongono la risorsa archivistica"@it ;
-        rdfs:isDefinedBy <https://w3id.org/arco/ontology/archive> ;
-        rdfs:label "consistenza"@it ,
-                   "extent"@en ;
-        owl:deprecated "true"^^xsd:boolean ;
-        owl:versionInfo "instabile"@it ,
-                        "unstable"@en .
-
-
 ###  https://w3id.org/arco/archives/ontology/archival-resource/inIntervalPosition
 :inIntervalPosition rdf:type owl:DatatypeProperty ;
                     rdfs:domain :TimeInstant ;
@@ -1204,10 +1189,6 @@ cis:CulturalEntity rdf:type owl:Class .
                                     owl:onProperty <https://w3id.org/arco/ontology/arco-lite/hasHolder> ;
                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onClass l0:Agent
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :extent ;
-                                    owl:someValuesFrom rdfs:Literal
                                   ] ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty a-cd:historicalInformation ;
