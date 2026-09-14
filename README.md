@@ -5,11 +5,11 @@
 
 # Risorse semantiche per il progetto *ArCo4Archives*
 
-[![Arco4Archives](./img/arco4archives.jpeg "Portale delle fonti per la storia della Repubblica italiana.")](https://icar.cultura.gov.it/standard/standard-san/arco4archives)
+[![ArCo4Archives](./img/arco4archives.jpeg "Portale delle fonti per la storia della Repubblica italiana.")](https://icar.cultura.gov.it/standard/standard-san/arco4archives)
 
 ## Introduzione
 
-Questo repository ospita l'**ontologia**, i **vocabolari controllati**, gli **allineamenti semantici esterni** che costituiscono gli asset semantici progettati e sviluppati nell'ambito dell'iniziativa per la realizzazione di una rete di ontologie **Arco4Archives**: [Standard archivistici ICAR: Arco4Archives](https://icar.cultura.gov.it/standard/standard-san/arco4archives).
+Questo repository ospita l'**ontologia**, i **vocabolari controllati**, gli **allineamenti semantici esterni** che costituiscono gli asset semantici progettati e sviluppati nell'ambito dell'iniziativa per la realizzazione di una rete di ontologie **ArCo4Archives**: [Standard archivistici ICAR: ArCo4Archives](https://icar.cultura.gov.it/standard/standard-san/arco4archives).
 
 L'ICAR si è posto l’obiettivo di arricchire gli strumenti di interoperabilità attraverso lo sviluppo di una rete di ontologie (ArCo4Archives) per rappresentare il dominio archivistico, che estenda le ontologie di **ArCo - Architettura della conoscenza**, sviluppate dall'ICCD e dal CNR con l'Università di Bologna e che serva come modello di riferimento per la produzione e pubblicazione del **grafo della conoscenza** (knowledge graph) degli archivi basato sui dati del [SIA (Sistema Informativo Archivistico)](https://icar.cultura.gov.it/sistemi-e-portali/archivi-nazionali/sia).
 
@@ -18,7 +18,7 @@ Il progetto si prefissa l'obiettivo di creare una modellazione ontologica per pr
 
 ### Il Progetto
 
-[Arco4Archives](https://portalefontirepubblicaitaliana.cnr.it/) è un progetto coordinato dall' **ICAR** e prodotto da [**BUP srl**](https://www.bupsolutions.com/) e **Istituto di Scienze e Technologie della Cognizione del CNR** - **[ISTC-CNR](https://www.istc.cnr.it/)**, finalizzato alla realizzazione di un'infrastruttura semantica interoperabile basata su standard aperti per la modellazione delle informazioni catalogate all'interno del sistema SIA. Partendo dai requisiti dei tracciati ICAR Import2 e dal modello dati del sistema, è stato possibile modellare la rappresentazione delle risorse archivistiche e delle loro relazioni gerarchiche e di contenimento, la rappresentazione dei contenuti, del loro ordinamento e delle interconnesioni con persone, organizzazioni, istituzioni e il loro sviluppo nel tempo. 
+[ArCo4Archives](https://portalefontirepubblicaitaliana.cnr.it/) è un progetto coordinato dall' **ICAR** e prodotto da [**BUP srl**](https://www.bupsolutions.com/) e **Istituto di Scienze e Technologie della Cognizione del CNR** - **[ISTC-CNR](https://www.istc.cnr.it/)**, finalizzato alla realizzazione di un'infrastruttura semantica interoperabile basata su standard aperti per la modellazione delle informazioni catalogate all'interno del sistema SIA. Partendo dai requisiti dei tracciati ICAR Import2 e dal modello dati del sistema, è stato possibile modellare la rappresentazione delle risorse archivistiche e delle loro relazioni gerarchiche e di contenimento, la rappresentazione dei contenuti, del loro ordinamento e delle interconnesioni con persone, organizzazioni, istituzioni e il loro sviluppo nel tempo. 
 
 ## Struttura del repository
 
