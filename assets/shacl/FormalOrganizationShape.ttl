@@ -1,0 +1,147 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix a-cd: <https://w3id.org/arco/ontology/context-description/> .
+@prefix a-ce: <https://w3id.org/arco/ontology/cultural-event/> .
+@prefix a-dd: <https://w3id.org/arco/ontology/denotative-description/> .
+@prefix a-lite: <https://w3id.org/arco/ontology/arco-lite/> .
+@prefix a-loc: <https://w3id.org/arco/ontology/location/> .
+@prefix a-arc: <https://w3id.org/archives/ontology/archival-resource/> .
+@prefix arco: <https://w3id.org/arco/ontology/arco/> .
+@prefix cis: <http://dati.beniculturali.it/cis/> .
+@prefix clv: <https://w3id.org/italia/onto/CLV/> .
+@prefix core: <https://w3id.org/arco/ontology/core/> .
+@prefix cov: <https://w3id.org/italia/onto/COV/> .
+@prefix cpv: <https://w3id.org/italia/onto/CPV/> .
+@prefix ipac: <https://ipac.cultura.gov.it/onto/ipac/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ti: <https://w3id.org/italia/onto/TI/> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <https://w3id.org/arco4archives/shacl/> .
+
+ex:FormalOrgShape
+    a sh:NodeShape ;
+    sh:targetClass a-arc:FormalOrganization ;
+    sh:property [
+        sh:path cov:hasActivityType ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        sh:path a-arc:institutionDate ;
+        sh:nodeKind sh:dateType ;
+    ],
+    [
+        sh:path a-arc:closingDate ;
+        sh:nodeKind sh:dateType ;
+    ];
+    sh:property [
+        sh:path cov:hasLegalStatus ;
+        sh:nodeKinde sh:IRI ;
+        sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "La relazione con la condizione giuridica è obbligatoria: cov:hasLegalStatus deve essere materializzata"
+    ];
+    sh:property [
+        sh:path a-cd:hasDesignationInTime ;
+        sh:class a-cd:DesignationInTime ;
+        sh:maxCount 1 ;
+    ],
+    [
+        sh:path cov:orgAcronym ;
+        sh:nodeKind sh:Literal ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cov:alternativeName ;
+        sh:nodeKind sh:Literal ; 
+    ] ;
+    sh:property [
+        sh:path a-arc:hasSite ;
+        sh:class clv:Feature ;
+    ] ;
+    sh:property [
+        sh:path a-arc:hasInstitutionalProfile ;
+        sh:class a-arc:InstitutionalProfile ;
+    ] .
+
+ex:DesignationInTimeShape
+   a sh:NodeShape ;
+   sh:targetClass a-cd:DesignationInTime ;
+   sh:property [
+       sh:path ti:hasTemporalEntity ;
+       sh:class ti:TemporalEntity ;
+   ] ,
+   [
+       sh:path lang:hasLanguage ;
+       sh:nodeKind sh:IRI ; 
+   ];
+    sh:or (
+        [sh:property [
+            sh:path core:hasType ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:severity sh:Violation ;
+            sh:nodeKind sh:IRI ; 
+            sh:message "La denominazione dell'agente ente è obbligatoria: a-cd:hasType per la denominazione corrente  dell'ente deve essere materializzata"
+        ] ]
+        [sh:property [
+            sh:path core:current ;
+            sh:hasValue true ;
+        ] ]
+    ).
+
+ex:FeatureShape 
+   a sh:NodeShape ;
+   sh:targetClass clv:Feature .
+
+ex:InstitutionalProfileShape 
+   a sh:NodeShape ;
+   sh:targetClass a-arc:InstitutionalProfile ;
+   sh:property [
+       sh:path core:isAssociatedWith ;
+       sh:class a-arc:HistoricalOrInstitutionalContext ;
+   ] ,
+   [
+       sh:path l0:name ;
+       sh:nodeKind sh:Literal ;
+       sh:minCount 1 ;
+       sh:maxCount 1 ;
+       sh:severity sh:Violation ;
+       sh:message "L'intestazione del Contesto storico istituzionale è obbligatoria: l0:name deve essere materializzata"
+   ] ,
+   [
+       sh:path core:description ;
+       sh:nodeKind sh:Literal ;
+   ] ,
+   [
+       sh:path ti:timeInterval ;
+       sh:class ti:TimeInterval ;
+   ] ,
+   [
+       sh:path ti:hasTemporalEntity ;
+       sh:class ti:TemporalEntity ;
+   ] .
+
+ex:HistoricalOrInstitutionalContextShape
+   a sh:NodeShape ;
+   sh:targetClass a-arc:HistoricalOrInstitutionalContext ;
+   sh:property [
+       sh:path l0:name ;
+       sh:nodeKind sh:Literal ;
+       sh:minCount 1 ;
+       sh:maxCount 1 ;
+       sh:severity sh:Violation ;
+       sh:message "L'intestazione del Contesto storico istituzionale è obbligatoria: l0:name deve essere materializzata"
+   ] ,
+   [
+       sh:path core:description ;
+       sh:nodeKind sh:Literal ;
+   ] ,
+   [
+       sh:path ti:hasTemporalEntity ;
+       sh:class ti:TemporalEntity ;
+   ] .
