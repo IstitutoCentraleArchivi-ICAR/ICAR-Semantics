@@ -40,7 +40,7 @@ ex:ArchivalItemShape
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "Il numero di ordinamento dell'unità documentaria è obbligatorio: l0:positionInSequence deve essere materializzato"
+        sh:message "Il numero di ordinamento dell'unità documentaria è obbligatorio: l0:positionInSequence deve essere materializzata"
         ] ;
 
     sh:property [
