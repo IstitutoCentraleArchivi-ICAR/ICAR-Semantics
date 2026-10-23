@@ -17,7 +17,7 @@
       rdfs:comment "Codelist for archival levels of description"@en , "Lista dei livelli archivistici"@it ;
       rdfs:label "Codelist for archival levels of description"@en , "Lista dei livelli archivistici"@it ;
       dct:title "Codelist for archival levels of description"@en , "Lista dei livelli archivistici"@it ;
-      dct:description "This is the controlled vocabulary of the archival levels of description. It is used to indicate whether an archival resource is an item, a fonds, a subfonds, etc."@en , "Questo è il vocabolario controllato definito a livello nazionale per i livelli di descrizione archivistici. Esso include livelli quali fondo, serie, unità archivistica, ecc."@it ;
+      dct:description "This is the controlled vocabulary of the archival levels of description. It is used to indicate whether an archival resource is an item, a fonds, a subfonds, etc. The concepts in the vocabulary were identified and formalized as part of the CNR project \"Portal of the sources for the history of the Italian Republic\", although the URIs were subsequently aligned with those used in the ICAR project ArCo4Archives."@en , "Questo è il vocabolario controllato definito a livello nazionale per i livelli di descrizione archivistici. Esso include livelli quali fondo, serie, unità archivistica, ecc. I concetti del vocabolario sono stati identificati e formalizzati nell'ambito del progetto CNR \"Portale delle fonti della storia della Repubblica italiana\", sebbene gli URi siano poi stati conformati a quelli del progetto ArCo4Archives di ICAR."@it ;
       xkos:numberOfLevels "1";
       dct:type <http://purl.org/adms/assettype/CodeList> ;
       adms:representationTechnique <http://purl.org/adms/representationtechnique/SKOS> ;
