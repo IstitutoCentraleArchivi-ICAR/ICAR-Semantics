@@ -1,4 +1,4 @@
-@prefix a-arc: <https://w3id.org/arco/archives/ontology/archival-resources/> .
+@prefix a-arc: <https://w3id.org/arco/archives/ontology/archival-resource/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
