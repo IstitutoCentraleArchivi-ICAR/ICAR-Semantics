@@ -40,7 +40,6 @@
 ## C. Titoli nobiliari, qualifiche e professioni delle persone (Attribute / AttributeInTime)
 
 32. Quale titolo nobiliare, se presente, deteneva una data persona fisica, e in quale periodo?  
-
 33. Quale professione esercitava un dato soggetto produttore, e in quale arco temporale?
 34. Quale qualifica deteneva una data persona al momento in cui ha prodotto un dato fondo archivistico?
 35. Quali soggetti produttori detenevano il titolo nobiliare di “Barone” (o un altro titolo dato)?
@@ -51,7 +50,6 @@
 ## D. Soggetti
 
 39. Quali risorse archivistiche hanno sia la figura politica XX sia YY come soggetti? 
-
 40. Quali sono i soggetti associati a una data risorsa archivistica?
 41. Quali risorse archivistiche condividono un soggetto comune con una data risorsa archivistica?
 42. Quali soggetti ricorrono con maggiore frequenza nell’intera collezione archivistica?
@@ -81,7 +79,6 @@
 ## G. Descrizione, ordinamento, consistenza, livello di descrizione
 
 59. Qual è il livello di descrizione (fondo, serie, unità, item, ecc.) di una data risorsa archivistica?  
-
 60. Quali criteri di ordinamento sono stati applicati a un dato complesso archivistico?
 61. Qual è la consistenza (ad es. numero di pagine/unità/ecc.) di una data risorsa archivistica?
 62. Quali risorse archivistiche hanno una consistenza superiore a un dato valore?
