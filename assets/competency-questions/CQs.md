@@ -1,4 +1,4 @@
-# Domande di competenza per l’ontologia ArCo4Archives (Archival resource)
+# Competency questions per l’ontologia ArCo4Archives 
 
 ## A. Gerarchia archivistica: ArchivalResourceSet, ArchivalUnit, ArchivalItem (e sottoclassi)
 
