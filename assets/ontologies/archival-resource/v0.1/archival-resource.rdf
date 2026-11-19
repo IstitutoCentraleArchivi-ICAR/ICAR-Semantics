@@ -21,6 +21,7 @@
      xmlns:core="https://w3id.org/arco/ontology/core/"
      xmlns:dcat="http://www.w3.org/ns/dcat#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:lang="https://w3id.org/italia/onto/Language/"
      xmlns:opla="http://www.ontologydesignpatterns.org/opla/"
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -28,6 +29,7 @@
      xmlns:a-cat="https://w3id.org/arco/ontology/catalogue/"
      xmlns:opla1="http://ontologydesignpatterns.org/opla/"
      xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:a-lite="https://w3id.org/arco/ontology/arco-lite/"
      xmlns:admsapit="https://w3id.org/italia/onto/ADMS/">
     <owl:Ontology rdf:about="https://w3id.org/arco/archives/ontology/archival-resource">
         <owl:versionIRI rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/0.1"/>
@@ -332,6 +334,22 @@
     
 
 
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/hasBinding -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/hasBinding">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/Binding"/>
+        <rdfs:comment xml:lang="it">Questa proprietà collega una risorsa archivistica alla legatura usata per raccoglierla o coservarla.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property links an archival resource to the binding used to gather or preserve it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="it">ha legatura</rdfs:label>
+        <rdfs:label xml:lang="en">has binding</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/arco/archives/ontology/archival-resource/hasCentury -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/hasCentury">
@@ -474,6 +492,22 @@
         <rdfs:label xml:lang="en">has extent</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/hasFilePlanCode -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/hasFilePlanCode">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResource"/>
+        <rdfs:range rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/FilePlanCode"/>
+        <rdfs:comment xml:lang="it">Questa proprietà collega una risorsa archivistica con l&apos;indice di classificazione assegnatogli secondo il piano di classificazione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property links an archival resource to the file plan code assigned to it according to the file plan.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="it">ha indice di classificazione</rdfs:label>
+        <rdfs:label xml:lang="en">has file plan code</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:ObjectProperty>
     
 
@@ -670,6 +704,35 @@
     
 
 
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/hasPhysicalContainer -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/hasPhysicalContainer">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/PhysicalContainer"/>
+        <rdfs:comment xml:lang="it">Questa proprietà collega una unità archivistica all&apos;unità di condizionamento in cui essa è conservata.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property links an archival unit to the physical container in which it is stored.</rdfs:comment>
+        <rdfs:label xml:lang="it">ha unità di condizionamento</rdfs:label>
+        <rdfs:label xml:lang="en">has physical conteiner</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/hasProjectionType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/hasProjectionType">
+        <rdfs:comment xml:lang="it">Questa proprietà collega un&apos;unità documentaria, nello specifico un documento cartografico, al tipo di proiezione utilizzata per la rappresentazione geografica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property links a archival unit, specifically a cartographic document, to the type of projection used for the geographic representation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="it">ha tipo di proiezione</rdfs:label>
+        <rdfs:label xml:lang="en">has projection type</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/arco/archives/ontology/archival-resource/hasPurpose -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/hasPurpose">
@@ -705,6 +768,20 @@
         <rdfs:label xml:lang="en">has reference</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/hasRepresentedGeometry -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/hasRepresentedGeometry">
+        <rdfs:comment xml:lang="it">Questa proprietà collega una unità documentaria, nello specifico un documento cartografico, alla geometria rappresentata in esso, che viene espressa indicando la longitudine e la latitudine rilevate.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property links an archival item, specifically a cartographic item, to the geometry represented within it, which is expressed by indicating the recorded longitude and latitude.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="it">ha geometria rappresentata</rdfs:label>
+        <rdfs:label xml:lang="en">has represented geometry</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:ObjectProperty>
     
 
@@ -831,6 +908,12 @@
     
 
 
+    <!-- https://w3id.org/arco/ontology/arco-lite/hasMaterial -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/arco-lite/hasMaterial"/>
+    
+
+
     <!-- https://w3id.org/arco/ontology/arco-lite/isCollectionMemberOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/arco-lite/isCollectionMemberOf"/>
@@ -945,6 +1028,12 @@
     
 
 
+    <!-- https://w3id.org/arco/ontology/denotative-description/hasAffixedElement -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/denotative-description/hasAffixedElement"/>
+    
+
+
     <!-- https://w3id.org/arco/ontology/denotative-description/hasMeasurementCollection -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/denotative-description/hasMeasurementCollection"/>
@@ -954,6 +1043,15 @@
     <!-- https://w3id.org/arco/ontology/location/hasTimeIndexedTypedLocation -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/arco/ontology/location/hasTimeIndexedTypedLocation"/>
+    
+
+
+    <!-- https://w3id.org/italia/onto/Language/hasLanguage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/onto/Language/hasLanguage">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/onto/Language/Language"/>
+    </owl:ObjectProperty>
     
 
 
@@ -1012,6 +1110,38 @@
     
 
 
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/accruals -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/accruals">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Questa proprietà esprime gli incrementi che potrebbero essere previsti per il contenuto documentale del complesso archivistico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property reflects the increases that might be anticipated in the documentary content of the archival resource set.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">accruals</rdfs:label>
+        <rdfs:label xml:lang="it">incrementi previsti</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/acquisitionInfo -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/acquisitionInfo">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Questa proprietà esprime le modalità in cui la documentazione è stata acquisita o versata in quel complesso archivistico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property describes the manner in which the documentation was acquired or transferred into that archival resource set.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">acquisition info</rdfs:label>
+        <rdfs:label xml:lang="it">modalità di acquisizione o versamento</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/arco/archives/ontology/archival-resource/annex -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/annex">
@@ -1024,6 +1154,22 @@
         <rdfs:label xml:lang="en">annex</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/appraisal -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/appraisal">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Questa proprietà indica le procedure, i tempi e i criteri utilizzati per la valutazione dello scarto.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property specifies the procedures, timelines, and criteria used for the apprisal.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">apprisal</rdfs:label>
+        <rdfs:label xml:lang="it">scarto</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:DatatypeProperty>
     
 
@@ -1064,6 +1210,52 @@
         <rdfs:label xml:lang="it">data di estinzione dell&apos;agente in stringa</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/consultationMode -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/consultationMode">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Questa proprietà viene usata per esprimere le modalità di consultazione consentite, previste dal soggetto conservatore, per un complesso archivistico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property is used to specify the permitted consultation mode established by the archival holder for an archival resource set.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">consultation mode</rdfs:label>
+        <rdfs:label xml:lang="it">modalità di consultazione</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/containerNumber -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/containerNumber">
+        <rdfs:comment xml:lang="it">Questa proprietà rappresenta il numero assegnato a una unità di condizionamento.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property represents the number assigned to a physical container.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">container number</rdfs:label>
+        <rdfs:label xml:lang="it">numero unità di condizionamento</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/definitiveSequenceNumber -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/definitiveSequenceNumber">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Questa proprietà rappresenta il numero di ordinamento definitivo, assegnato in sede di riordino, a una unità archivistica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property represents the final sequence number assigned to an archival unit during the arrangement process.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">definitive sequence number</rdfs:label>
+        <rdfs:label xml:lang="it">numero di ordinamento definitivo</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:DatatypeProperty>
     
 
@@ -1173,6 +1365,20 @@
     
 
 
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/materialCondition -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/materialCondition">
+        <rdfs:comment xml:lang="en">In the context of assessing the conservation status, this property describes the material condition of an archival resource.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Questa proprietà esprime, nel contesto della valutazione dello stato di conservazione, le condizioni del materiale di una risorsa archivistica.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="it">condizioni del materiale</rdfs:label>
+        <rdfs:label xml:lang="en">material condition</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/arco/archives/ontology/archival-resource/quantity -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/quantity">
@@ -1185,6 +1391,22 @@
         <rdfs:label xml:lang="it">quantità</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/recordAbstract -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/recordAbstract">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Questa proprietà collega alla risorsa archivistica il suo regesto, ossia unriassunto sintetico del contenuto della documentazione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property links the archival resource to its abstract that is a concise summary of the documentation&apos;s content.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">record abstract</rdfs:label>
+        <rdfs:label xml:lang="it">regesto</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:DatatypeProperty>
     
 
@@ -1205,6 +1427,22 @@
     
 
 
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/scopeAndContent -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/scopeAndContent">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Questa proprietà descrive l&apos;ambito e il contenuto, in forma testuale, del complesso archivistico che si intende descrivere.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property describes the scope and content, in textual form, of the archival resource set being described.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">scope and content</rdfs:label>
+        <rdfs:label xml:lang="it">scopo e contenuto</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/arco/archives/ontology/archival-resource/technicalDescription -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/technicalDescription">
@@ -1217,6 +1455,22 @@
         <rdfs:label xml:lang="en">technical description</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/temporarySequenceNumber -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/temporarySequenceNumber">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="it">Questa proprietà esprime il numero di ordinamento assegnato provvisoriamente nel corso del processo di riordino del complesso archivistico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property indicates the sorting number provisionally assigned during the process of reorganizing the archival resource set.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="it">numero di ordinamento provvisorio</rdfs:label>
+        <rdfs:label xml:lang="en">temporary sequence number</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:DatatypeProperty>
     
 
@@ -1260,9 +1514,24 @@
     
 
 
+    <!-- https://w3id.org/arco/ontology/arco-lite/title -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/ontology/arco-lite/title"/>
+    
+
+
     <!-- https://w3id.org/arco/ontology/context-description/historicalInformation -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/arco/ontology/context-description/historicalInformation"/>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/core/current -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/ontology/core/current">
+        <rdfs:domain rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -1272,9 +1541,27 @@
     
 
 
+    <!-- https://w3id.org/arco/ontology/core/specification -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/ontology/core/specification"/>
+    
+
+
+    <!-- https://w3id.org/arco/ontology/denotative-description/transcript -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/arco/ontology/denotative-description/transcript"/>
+    
+
+
     <!-- https://w3id.org/italia/onto/l0/identifier -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/italia/onto/l0/identifier"/>
+    
+
+
+    <!-- https://w3id.org/italia/onto/l0/positionInSequence -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/italia/onto/l0/positionInSequence"/>
     
 
 
@@ -1371,6 +1658,42 @@
 
     <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem">
         <rdfs:subClassOf rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/denotative-description/hasAffixedElement"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/Seal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/Language/hasLanguage"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/onto/Language/Language"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/recordAbstract"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/scopeAndContent"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/denotative-description/transcript"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/l0/positionInSequence"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResourceSet"/>
         <owl:disjointWith rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit"/>
         <rdfs:comment xml:lang="it">Questa classe rappresenta una unità documentaria</rdfs:comment>
@@ -1415,6 +1738,12 @@
 
     <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalReferenceCode">
         <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Identifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/specification"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="it">Questa classe rappresenta la segnatura/codice identificativo della risorsa archivistica.</rdfs:comment>
         <rdfs:comment xml:lang="en">This class represents the archival reference code of the archival resource</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
@@ -1477,6 +1806,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/hasExtent"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/Extent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/hasFilePlanCode"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/FilePlanCode"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1566,13 +1901,14 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/isDescribedBy"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/FindingAid"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/isDescribedBy"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/ontology/catalogue/Record"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/FindingAid"/>
+                            <rdf:Description rdf:about="https://w3id.org/arco/ontology/catalogue/Record"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1672,6 +2008,30 @@
 
     <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalUnit">
         <rdfs:subClassOf rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalResource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/hasBinding"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/Binding"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/hasPhysicalContainer"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/PhysicalContainer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/scopeAndContent"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/l0/positionInSequence"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="it">Questa classe rappresenta una unità archivistica.</rdfs:comment>
         <rdfs:comment xml:lang="en">This class represents an archival unit.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
@@ -1776,10 +2136,43 @@
     
 
 
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/Binding -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/Binding">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/description"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta la legatura usata per raccogliere o conservare una risorsa archivistica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the binding used to gather or preserve an archival resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">Binding</rdfs:label>
+        <rdfs:label xml:lang="it">Legatura</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/arco/archives/ontology/archival-resource/CartographicItem -->
 
     <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/CartographicItem">
         <rdfs:subClassOf rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/hasProjectionType"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ProjectionType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/hasRepresentedGeometry"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/onto/CLV/Geometry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="it">Questa classe rappresenta un documento, in vari supporti, che descrive graficamente in scala un territorio nei vari aspetti legati allo spazio fisco, come confini, infrastrutture, proprietà, ecc.</rdfs:comment>
         <rdfs:comment xml:lang="en">This class represents a document, in various media, that graphically describes a territory to scale in its various aspects related to fiscal space, such as borders, infrastructure, property, etc.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
@@ -1907,6 +2300,21 @@
         <rdfs:label xml:lang="it">Relazione con documentazione in copia o originale</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/Correspondence -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/Correspondence">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/ArchivalItem"/>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta la tipologia documentaria del carteggio. Per la descrizione di questa tipologia documentaria non sono previsti descrittori differenti rispetto a una comune unità documentaria.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the correspondence document type. No descriptors other than those used for a standard archival item are required to describe this document type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="it">Carteggio</rdfs:label>
+        <rdfs:label xml:lang="en">Correspondence</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:Class>
     
 
@@ -2039,6 +2447,48 @@
         <rdfs:label xml:lang="it">Tipo di consistenza</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/FilePlan -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/FilePlan">
+        <rdfs:subClassOf rdf:resource="http://dati.beniculturali.it/cis/CulturalEntity"/>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta il piano di classificazione associato a un complesso archivistico. Il piano viene citato nella descrizione dell&apos;Unità archivistica in cui si riporta l&apos;indice di classificazione e la nota.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the file plan associated with an archival resource set. The scheme is cited in the description of the archival unit, which includes the classification code and the note.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">File plan</rdfs:label>
+        <rdfs:label xml:lang="it">Piano di classificazione</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/FilePlanCode -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/FilePlanCode">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Identifier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/isDescribedBy"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/FilePlan"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/note"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta l&apos;indice di classificazione, un codice alfanumerico che indica la posizione logica di un documento all&apos;interno del piano di classificazione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the file plan code, an alphanumeric code indicating the logical position of a document within the file plan.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">File plan code</rdfs:label>
+        <rdfs:label xml:lang="it">Indice di classificazione</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:Class>
     
 
@@ -2524,6 +2974,54 @@
     
 
 
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/PhysicalContainer -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/PhysicalContainer">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/hasType"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/PhysicalContainerType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/quantity"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/arco-lite/title"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta un&apos;unità di condizionamento, ossia l&apos;involucro fisico in cui è conservata la documentazione.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the physical container that is the physical enclosure in which the documentation is kept.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">Physical container</rdfs:label>
+        <rdfs:label xml:lang="it">Unità di condizionamento</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/PhysicalContainerType -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/PhysicalContainerType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Type"/>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta la tipologia di unità di condizionamento. Accoglie un vocabolario controllato i cui termini sono: Busta; Camicia; Cartella; Faldone; Fascio; Filza; Mazzo; Pacco; Plico; Raccoglitore; Scatola; PacchettoInformativo.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the type of physical container. It employs a controlled vocabulary comprising the following terms: Envelope; Wrapper; Folder; Large folder; Bundle; Spindle file; Bunch; Package; Packet; Binder; Box; InformationPackage.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">Physical container type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo di unità di condizionamento</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/arco/archives/ontology/archival-resource/ProjectType -->
 
     <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ProjectType">
@@ -2535,6 +3033,21 @@
         <rdfs:label xml:lang="it">Tipo di progetto</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/ProjectionType -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/ProjectionType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Type"/>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta il tipo di proiezione usata per rappresentare dati geografici in un documento cartografico, ad esempio una proiezione azimutale o una proiezione cilindrica, ecc.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the type of projection used to display geographic data in a map document for example, an azimuthal projection, a cylindrical projection, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">Projection type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo di proiezione</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:Class>
     
 
@@ -2571,6 +3084,54 @@
         <rdfs:label xml:lang="en">Recurrent event</rdfs:label>
         <owl:versionInfo xml:lang="it">instabile</owl:versionInfo>
         <owl:versionInfo xml:lang="en">unstable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/Seal -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/Seal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/arco-lite/hasMaterial"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/ontology/denotative-description/Material"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/hasType"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource/SealType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/arco/ontology/core/description"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta il sigillo, ossia un elemento apposto alla documentazione al fine di garantirne l&apos;originalità e l&apos;integrità.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the seal, that is an element affixed to documentation to guarantee its authenticity and integrity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">Seal</rdfs:label>
+        <rdfs:label xml:lang="it">Sigillo</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/arco/archives/ontology/archival-resource/SealType -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/archives/ontology/archival-resource/SealType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/core/Type"/>
+        <rdfs:comment xml:lang="it">Questa classe rappresenta il tipo di sigillo apposto alla documetazione, che può essere, ad esempio: Sigillo a una facci, Sigillo a due facce, Bolla, ecc.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This class represents the type of seal affixed to the documentation, which can be, for example: single-sided seal, double-sided seal, bull, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/arco/archives/ontology/archival-resource"/>
+        <rdfs:label xml:lang="en">Seal type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo di sigillo</rdfs:label>
+        <owl:versionInfo xml:lang="it">stabile</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">stable</owl:versionInfo>
     </owl:Class>
     
 
@@ -2719,6 +3280,12 @@
     
 
 
+    <!-- https://w3id.org/arco/ontology/denotative-description/Material -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/denotative-description/Material"/>
+    
+
+
     <!-- https://w3id.org/arco/ontology/denotative-description/MeasurementCollection -->
 
     <owl:Class rdf:about="https://w3id.org/arco/ontology/denotative-description/MeasurementCollection"/>
@@ -2734,6 +3301,20 @@
     <!-- https://w3id.org/arco/ontology/location/TimeIndexedTypedLocation -->
 
     <owl:Class rdf:about="https://w3id.org/arco/ontology/location/TimeIndexedTypedLocation"/>
+    
+
+
+    <!-- https://w3id.org/italia/onto/CLV/Geometry -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/onto/CLV/Geometry"/>
+    
+
+
+    <!-- https://w3id.org/italia/onto/Language/Language -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/onto/Language/Language">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Characteristic"/>
+    </owl:Class>
     
 
 
