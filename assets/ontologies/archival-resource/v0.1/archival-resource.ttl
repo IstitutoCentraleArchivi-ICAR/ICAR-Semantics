@@ -932,9 +932,9 @@ TI:hasTimeParameter rdf:type owl:ObjectProperty .
 ###  https://w3id.org/arco/archives/ontology/archival-resource/totalExtentInLinearMeters
 :totalExtentInLinearMeters rdf:type owl:DatatypeProperty ;
                            rdfs:domain :ArchivalResourceSet ;
-                           rdfs:range xsd:integer ;
-                           rdfs:comment "Questa proprietà indica con un numero intero la consistenza totale della risorsa archivistica descritta espressa in metri lineari."@it ,
-                                        "This property indicates with an integer the total consistency of the described archival resource expressed in linear meters."@en ;
+                           rdfs:range rdfs:Literal ;
+                           rdfs:comment "Questa proprietà indica idealmente con un numero intero la consistenza totale della risorsa archivistica descritta espressa in metri lineari."@it ,
+                                        "This property indicates with, ideally, an integer the total consistency of the described archival resource expressed in linear meters."@en ;
                            rdfs:isDefinedBy <https://w3id.org/arco/archives/ontology/archival-resource> ;
                            rdfs:label "consistenza totale in metri lineari"@it ,
                                       "total extent in linear meters"@en ;
